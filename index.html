@@ -1314,6 +1314,75 @@
         font-size: 0.75rem;
       }
     }
+
+    /* ── MODAL IMAGEN INFORMACIÓN ── */
+    #modal-informacion {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(10, 5, 20, 0.88);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      animation: fadeInModal .25s ease;
+    }
+
+    #modal-informacion.open {
+      display: flex;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .modal-inner {
+      position: relative;
+      max-width: 92vw;
+      max-height: 92vh;
+      animation: scaleInModal .28s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    @keyframes scaleInModal {
+      from { transform: scale(.85); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    .modal-inner img {
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.6);
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+      transition: background .2s, transform .2s;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      background: var(--green-dark);
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
@@ -1432,7 +1501,8 @@
         <h3>Arándano</h3>
         <p>Rico en antioxidantes, vitaminas y fibra. Delicado y sensible a la humedad.</p>
         <button class="btn-explore green"
-          onclick="document.getElementById('trazabilidad-arandano').scrollIntoView({behavior: 'smooth'})">Explorar</button>
+          id="btn-explorar-arandano"
+          onclick="abrirModalInformacion()">Explorar</button>
       </div>
     </div>
   </section>
@@ -1776,6 +1846,31 @@
     window.addEventListener('scroll', () => {
       navLinks.classList.remove('active');
       menuToggle.classList.remove('active');
+    });
+  </script>
+
+  <!-- ── MODAL INFORMACIÓN ── -->
+  <div id="modal-informacion" role="dialog" aria-modal="true" aria-label="Información del Arándano"
+       onclick="if(event.target===this) cerrarModalInformacion()">
+    <div class="modal-inner">
+      <button class="modal-close" onclick="cerrarModalInformacion()" aria-label="Cerrar">✕</button>
+      <img src="informacion.png" alt="Información del Arándano" />
+    </div>
+  </div>
+
+  <script>
+    function abrirModalInformacion() {
+      var m = document.getElementById('modal-informacion');
+      m.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function cerrarModalInformacion() {
+      var m = document.getElementById('modal-informacion');
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') cerrarModalInformacion();
     });
   </script>
 
