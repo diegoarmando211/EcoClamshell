@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoClamshell – Sustainable Packaging</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #221230;
+      /* Morado muy oscuro / arándano profundo */
+      --green-mid: #4c2870;
+      /* Morado medio elegante */
+      --green-light: #7943b0;
+      /* Morado claro / lavanda vibrante */
+      --green-pale: #f4eafd;
+      /* Lavanda muy claro y suave */
+      --amber: #dca122;
+      /* Amarillo dorado para contrastar con morado */
+      --amber-light: #f5be4f;
+      --cream: #faf8fc;
+      /* Crema con un sutil matiz violeta */
+      --sand: #f2edf7;
+      /* Arena con un toque lila */
+      --red-soft: #e05555;
+      --text-dark: #281e33;
+      /* Texto oscuro con tinte morado */
+      --text-mid: #4a3e59;
+      --text-light: #796c8c;
+      --white: #ffffff;
+      --radius: 14px;
+      --shadow: 0 8px 32px rgba(34, 18, 48, .12);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      font-size: 1.6rem;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: .65rem;
+      color: var(--green-light);
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: clamp(.75rem, 2vw, .9rem);
+      color: var(--text-mid);
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-mid);
+    }
+
+    .btn-qr {
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: clamp(.75rem, 2vw, .85rem);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s;
+      min-height: 44px;
+      min-width: 44px;
+      white-space: nowrap;
+    }
+
+    .btn-qr:hover {
+      background: var(--green-mid);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--green-dark);
+    }
+
+    .menu-toggle.active span {
+      background: var(--green-mid);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #f4eafd 0%, #f2edf7 60%, #ffffff 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 560px;
+      overflow: hidden;
+      padding: 60px 5% 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 3.4rem);
+      color: var(--green-dark);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero-text h1 span {
+      color: var(--green-mid);
+      display: block;
+    }
+
+    .hero-text p {
+      font-size: clamp(.9rem, 2.5vw, 1rem);
+      color: var(--text-mid);
+      max-width: 420px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    .badge .icon {
+      font-size: 1.6rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-primary {
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-size: clamp(.85rem, 2vw, .95rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: inline-block;
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+    }
+
+    .btn-link {
+      color: var(--green-mid);
+      font-weight: 600;
+      font-size: clamp(.8rem, 2vw, .9rem);
+      text-decoration: none;
+    }
+
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-img img {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      object-fit: cover;
+    }
+
+    .hero-badge-corner {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+    }
+
+    .hero-badge-corner .big {
+      font-size: 1.4rem;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section {
+      padding: 70px 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: .95rem;
+      margin-bottom: 44px;
+    }
+
+    /* ── PROBLEMA / SOLUCIÓN ── */
+    .prob-sol {
+      background: var(--sand);
+    }
+
+    .prob-sol-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .prob-card,
+    .sol-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .prob-card h3 {
+      color: var(--red-soft);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .sol-card h3 {
+      color: var(--green-mid);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .9rem;
+    }
+
+    .check-list li .ico {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .arrow-mid {
+      font-size: 3rem;
+      color: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prob-sol-img {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      border-radius: 10px;
+
+      margin-top: auto;
+    }
+
+    /* ── CÓMO FUNCIONA ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .how-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 18px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .how-card img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+
+    .how-card h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .how-card p {
+      font-size: .8rem;
+      color: var(--text-light);
+    }
+
+    /* ── SELECCIÓN FRUTA ── */
+    .fruit-section {
+      background: var(--sand);
+    }
+
+    .fruit-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .fruit-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .fruit-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--green-pale);
+    }
+
+    .fruit-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--green-dark);
+    }
+
+    .fruit-card.amber h3 {
+      color: var(--amber);
+    }
+
+    .fruit-card p {
+      font-size: .85rem;
+      color: var(--text-mid);
+      text-align: center;
+    }
+
+    .btn-explore {
+      padding: 10px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: clamp(.75rem, 2vw, .85rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-explore.green {
+      background: var(--green-mid);
+      color: var(--white);
+    }
+
+    .btn-explore.amber-btn {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    .btn-explore:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
+
+    /* ── TRAZABILIDAD ── */
+    .traz-section {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .traz-section .section-title {
+      color: var(--white);
+    }
+
+    .traz-section .section-subtitle {
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .traz-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .traz-qr {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .traz-qr img {
+      width: 140px;
+      height: 140px;
+    }
+
+    .traz-qr p {
+      font-size: .75rem;
+      color: var(--text-mid);
+      text-align: center;
+    }
+
+    .traz-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .traz-item {
+      text-align: center;
+    }
+
+    .traz-item .icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .traz-item h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .traz-item p {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .65);
+    }
+
+    /* ── CONSERVACIÓN ── */
+    .conserv-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .conserv-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .conserv-card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .conserv-card h4 {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.3;
+    }
+
+    /* ── IDEAS DE USO ── */
+    .ideas-section {
+      background: var(--sand);
+    }
+
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .idea-card {
+      text-align: center;
+    }
+
+    .idea-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+    }
+
+    .idea-card p {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* ── QUÉ HACER ── */
+    .reuse-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .reuse-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .reuse-card .icon {
+      font-size: 2.6rem;
+      margin-bottom: 14px;
+    }
+
+    .reuse-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .reuse-card p {
+      font-size: .85rem;
+      color: var(--text-light);
+    }
+
+    /* ── IMPACTO AMBIENTAL ── */
+    .impact-section {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .impact-section .section-title {
+      color: var(--white);
+    }
+
+    .impact-section .section-subtitle {
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .impact-col {
+      background: rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .impact-col h3 {
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .impact-col.bad h3 {
+      color: #ff8080;
+    }
+
+    .impact-col.good h3 {
+      color: #7ee87e;
+    }
+
+    .impact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .impact-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .85);
+    }
+
+    .vs-badge {
+      background: var(--amber);
+      color: var(--white);
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 16px rgba(200, 134, 10, .4);
+    }
+
+    /* ── ALEMANIA ── */
+    .germany-section {
+      background: var(--sand);
+    }
+
+    .germany-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .germany-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .germany-card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .germany-card p {
+      font-size: .82rem;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+
+    .germany-title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .germany-flag {
+      font-size: 2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 48px 5% 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    footer h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    footer p {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, .7);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .footer-social a {
+      font-size: 1.4rem;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .subscribe-form input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: .85rem;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .subscribe-form button {
+      background: var(--green-light);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .subscribe-form button:hover {
+      background: var(--green-mid);
+    }
+
+    .footer-bottom {
+      background: #0f1f0f;
+      text-align: center;
+      padding: 16px;
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    /* ── TWO-COLUMN SPLITS ── */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .split-left,
+    .split-right {
+      padding: 64px 5%;
+    }
+
+    .split-right {
+      background: var(--sand);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-badges {
+        justify-content: center;
+      }
+
+      .hero-btns {
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero-img {
+        margin-top: 30px;
+      }
+
+      .hero-badge-corner {
+        display: none;
+      }
+
+      .prob-sol-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow-mid {
+        transform: rotate(90deg);
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .traz-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .conserv-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ideas-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .reuse-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .traz-icons {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fruit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 3%;
+        height: auto;
+      }
+
+      .logo {
+        flex: 1;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 14px 5%;
+        font-size: 0.95rem;
+      }
+
+      .menu-toggle {
+        display: block;
+        padding: 8px 12px;
+      }
+
+      .conserv-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ideas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 3%;
+        height: 56px;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo {
+        gap: 8px;
+      }
+
+      .logo-icon {
+        font-size: 1.2rem;
+      }
+
+      .logo-text {
+        font-size: 1rem;
+      }
+
+      .logo-sub {
+        font-size: .55rem;
+      }
+
+      .btn-qr {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        gap: 4px;
+      }
+
+      .section {
+        padding: 50px 3%;
+      }
+
+      .hero {
+        padding: 40px 3% 30px;
+        min-height: auto;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(1.4rem, 5vw, 2.4rem);
+        margin-bottom: 14px;
+      }
+
+      .hero-text p {
+        font-size: clamp(.85rem, 2.5vw, .95rem);
+        margin-bottom: 20px;
+      }
+
+      .hero-badges {
+        gap: 12px;
+        font-size: .65rem;
+        margin-bottom: 20px;
+      }
+
+      .badge {
+        gap: 2px;
+      }
+
+      .badge .icon {
+        font-size: 1.2rem;
+      }
+
+      .hero-btns {
+        gap: 8px;
+      }
+
+      .btn-primary {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+      }
+
+      .btn-link {
+        font-size: clamp(.75rem, 2vw, .85rem);
+      }
+
+      .ideas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .conserv-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reuse-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .prob-card,
+      .sol-card {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+      }
+
+      .section-subtitle {
+        font-size: clamp(.85rem, 2vw, .95rem);
+      }
+
+      .conserv-card {
+        padding: 20px 12px;
+      }
+
+      .conserv-card .icon {
+        font-size: 2rem;
+      }
+
+      .conserv-card h4 {
+        font-size: 0.8rem;
+      }
+
+      .how-card {
+        padding: 18px 12px;
+      }
+
+      .how-card img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .how-card h4 {
+        font-size: 0.8rem;
+      }
+
+      .fruit-card {
+        padding: 18px;
+      }
+
+      .fruit-card img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 2%;
+        height: 52px;
+      }
+
+      .logo-icon {
+        font-size: 1rem;
+      }
+
+      .logo-text {
+        font-size: 0.85rem;
+      }
+
+      .logo-sub {
+        display: none;
+      }
+
+      .btn-qr {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+      }
+
+      .section {
+        padding: 40px 2%;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 30px;
+      }
+
+      .hero {
+        padding: 30px 2% 20px;
+        min-height: auto;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+      }
+
+      .hero-badges {
+        flex-direction: row;
+        gap: 8px;
+        font-size: 0.6rem;
+      }
+
+      .badge {
+        gap: 2px;
+      }
+
+      .badge .icon {
+        font-size: 1rem;
+      }
+
+      .hero-text p {
+        max-width: 100%;
+        font-size: 0.85rem;
+      }
+
+      .hero-btns {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 12px 16px;
+        font-size: 0.8rem;
+      }
+
+      .btn-link {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      .btn-explore {
+        width: 100%;
+        font-size: 0.8rem;
+      }
+
+      .fruit-grid {
+        max-width: 100%;
+      }
+
+      .ideas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .conserv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reuse-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .prob-card,
+      .sol-card {
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+
+      .conserv-card {
+        padding: 16px 10px;
+      }
+
+      .how-card {
+        padding: 16px 10px;
+      }
+
+      .how-card img {
+        width: 60px;
+        height: 60px;
+      }
+
+      footer {
+        padding: 32px 2% 16px;
+      }
+
+      .subscribe-form {
+        flex-direction: column;
+      }
+
+      .subscribe-form input,
+      .subscribe-form button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .section {
+        padding: 32px 2%;
+      }
+
+      .hero {
+        padding: 24px 2% 16px;
+      }
+
+      .hero-text h1 {
+        font-size: 1rem;
+      }
+
+      .hero-badges {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .badge {
+        font-size: 0.55rem;
+      }
+
+      .hero-text p {
+        font-size: 0.75rem;
+      }
+
+      .section-title {
+        font-size: 1.2rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="logo">
+      <span class="logo-icon">🌿</span>
+      <div>
+        <div class="logo-text">EcoClamshell</div>
+        <div class="logo-sub">Sustainable Packaging</div>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#envase">El Envase</a></li>
+      <li><a href="#frutas">Frutas</a></li>
+      <li><a href="#trazabilidad-arandano">Trazabilidad Arándano</a></li>
+      <li><a href="#trazabilidad">Trazabilidad Envase</a></li>
+      <li><a href="#impacto">Impacto</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1>EcoClamshell<span>Sustainable Packaging<br>for a Better Future</span></h1>
+      <p>Envase ecológico elaborado a partir de bagazo de caña de azúcar, diseñado para frutas sensibles a la humedad
+        como los arándanos frescos.</p>
+      <div class="hero-badges">
+        <div class="badge"><span class="icon">🌿</span>Biodegradable</div>
+        <div class="badge"><span class="icon">💧</span>Control de<br>Humedad</div>
+        <div class="badge"><span class="icon">🌍</span>Listo para<br>Exportación</div>
+      </div>
+      <div class="hero-btns">
+        <a href="#envase" class="btn-primary">Conocer más</a>
+        <a href="#impacto" class="btn-link">Ver impacto ambiental →</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="product-box.jpg" alt="Arándanos en envase ecológico">
+      <div class="hero-badge-corner">
+        <span>HECHO CON</span>
+        <span class="big">🌾</span>
+        <span>BAGAZO DE<br>CAÑA DE AZÚCAR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROBLEMA Y SOLUCIÓN ── -->
+  <section class="section prob-sol" id="envase">
+    <h2 class="section-title">EL PROBLEMA Y NUESTRA SOLUCIÓN</h2>
+    <div class="prob-sol-grid">
+      <div class="prob-card">
+        <h3>⚠ Problemas Actuales</h3>
+        <ul class="check-list">
+          <li><span class="ico">❌</span> Acumulación de humedad en el envase</li>
+          <li><span class="ico">❌</span> Crecimiento de hongos y deterioro</li>
+          <li><span class="ico">❌</span> Envases plásticos contaminantes</li>
+          <li><span class="ico">❌</span> Disminución de la vida útil de la fruta</li>
+        </ul>
+        <img src="arandanos-envase.png" alt="Problema plástico" class="prob-sol-img">
+      </div>
+      <div class="arrow-mid">➡</div>
+      <div class="sol-card">
+        <h3>✅ Nuestra Solución: EcoClamshell</h3>
+        <ul class="check-list">
+          <li><span class="ico">✅</span> Absorbe y regula la humedad (90–95% HR ideal)</li>
+          <li><span class="ico">✅</span> Ventilación inteligente con microperforaciones</li>
+          <li><span class="ico">✅</span> Material biodegradable y compostable</li>
+          <li><span class="ico">✅</span> Mayor conservación y frescura</li>
+        </ul>
+        <img src="solucion.png" alt="Solución ecológica" class="prob-sol-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CÓMO FUNCIONA ── -->
+  <section class="section" id="como-funciona">
+    <h2 class="section-title">¿CÓMO FUNCIONA ECOCLAMSHELL?</h2>
+    <p class="section-subtitle">Diseño inteligente con 4 componentes clave</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&q=80" alt="Bagazo de caña">
+        <h4>Bagazo de caña</h4>
+        <p>Estructura resistente, ligera y biodegradable.</p>
+      </div>
+      <div class="how-card">
+        <img src="https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?w=200&q=80" alt="Fibra absorbente">
+        <h4>Fibra absorbente</h4>
+        <p>Absorbe el exceso de humedad y la libera cuando es necesario.</p>
+      </div>
+      <div class="how-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80" alt="Rejilla elevada">
+        <h4>Rejilla elevada</h4>
+        <p>Separa la fruta del líquido acumulado y evita aplastamiento.</p>
+      </div>
+      <div class="how-card">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&q=80" alt="Microperforaciones">
+        <h4>Microperforaciones</h4>
+        <p>Permiten el intercambio gaseoso y controlan la maduración.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SELECCIÓN DE FRUTA ── -->
+  <section class="section fruit-section" id="frutas">
+    <h2 class="section-title">SELECCIÓN DE FRUTA</h2>
+    <p class="section-subtitle">Elige tu fruta y descubre información personalizada</p>
+    <div class="fruit-grid">
+      <div class="fruit-card">
+        <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=300&q=80" alt="Arándano">
+        <h3>Arándano</h3>
+        <p>Rico en antioxidantes, vitaminas y fibra. Delicado y sensible a la humedad.</p>
+        <button class="btn-explore green"
+          onclick="document.getElementById('trazabilidad-arandano').scrollIntoView({behavior: 'smooth'})">Explorar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRAZABILIDAD DEL ARÁNDANO ── -->
+  <section class="section" id="trazabilidad-arandano" style="background: var(--white); padding: 70px 5%;">
+    <h2 class="section-title">🫐 TRAZABILIDAD DEL ARÁNDANO</h2>
+    <p class="section-subtitle">Del campo al consumidor – Transparencia y calidad garantizada</p>
+
+    <style>
+      .traz-grid-arandano {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .traz-card-arandano {
+        background: var(--cream);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--green-mid);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .traz-card-arandano:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(26, 58, 26, .18);
+      }
+
+      .traz-card-arandano h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--green-dark);
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .traz-card-arandano ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px 0;
+      }
+
+      .traz-card-arandano li {
+        font-size: 0.85rem;
+        color: var(--text-mid);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+
+      .traz-card-arandano img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: auto;
+      }
+
+      .cert-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .cert-badge {
+        background: var(--white);
+        color: var(--green-dark);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border: 1px solid var(--green-pale);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    </style>
+
+    <div class="traz-grid-arandano">
+      <!-- Origen del producto -->
+      <div class="traz-card-arandano">
+        <div>
+          <h3>📍 Origen del Producto</h3>
+          <ul>
+            <li><strong>Empresa:</strong> Oro Azul</li>
+            <li><strong>Ubicación:</strong> San Pablo – Catacaos, Piura, Perú</li>
+            <li><strong>Producto:</strong> Arándano fresco Premium</li>
+            <li><strong>Variedad:</strong> Madeira</li>
+            <li><strong>País de origen:</strong> Perú</li>
+          </ul>
+        </div>
+        <img src="logo-origen.png" alt="Cultivo de Arándanos"
+          style="object-fit: contain; background: #fff; padding: 10px;">
+      </div>
+
+      <!-- Información del lote -->
+      <div class="traz-card-arandano">
+        <div>
+          <h3>📦 Información del Lote</h3>
+          <ul>
+            <li><strong>Lote:</strong> <code
+                style="background: rgba(0,0,0,0.05); padding: 2px 4px; border-radius: 4px; font-family: monospace; font-size: 0.8rem;">OA-20260620-P01</code>
+            </li>
+            <li><strong>Cosecha:</strong> 18/06/2026</li>
+            <li><strong>Empaque:</strong> 20/06/2026</li>
+            <li><strong>Temperatura:</strong> 2°C – 4°C</li>
+          </ul>
+        </div>
+        <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?w=400&q=80" alt="Empaque de arándanos">
+      </div>
+
+      <!-- Certificaciones -->
+      <div class="traz-card-arandano">
+        <div>
+          <h3>✅ Certificaciones</h3>
+          <div class="cert-list">
+            <span class="cert-badge">🛡️ GLOBALG.A.P.</span>
+            <span class="cert-badge">🤝 GRASP</span>
+            <span class="cert-badge">🔬 FSMA</span>
+            <span class="cert-badge">🇵🇪 CLP – SENASA</span>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&q=80"
+          alt="Certificaciones y Calidad">
+      </div>
+
+      <!-- Logística de Exportación -->
+      <div class="traz-card-arandano">
+        <div>
+          <h3>🚢 Logística de Exportación</h3>
+          <ul>
+            <li><strong>Puerto de salida:</strong> Paita, Perú</li>
+            <li><strong>Destino:</strong> Hamburgo, Alemania</li>
+            <li><strong>Transporte:</strong> Cadena de frío controlada</li>
+          </ul>
+        </div>
+        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=300&q=80"
+          alt="Logística de exportación marítima">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRAZABILIDAD DEL ENVASE ── -->
+  <section class="section" id="trazabilidad">
+    <h2 class="section-title">🌱 TRAZABILIDAD DEL ENVASE</h2>
+    <p class="section-subtitle">Del residuo agrícola a una solución sostenible</p>
+
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="background: var(--sand); border-radius: var(--radius); padding: 32px; margin-bottom: 40px;">
+        <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px;">
+          <strong>EcoClamshell está fabricado a partir de bagazo de caña de azúcar, un subproducto generado durante la
+            producción de azúcar.</strong> En lugar de convertirse en un desecho, este material es transformado en un
+          envase biodegradable diseñado para proteger frutas delicadas y reducir el impacto ambiental.
+        </p>
+      </div>
+
+      <div class="conserv-grid" style="margin-bottom: 50px;">
+        <div class="conserv-card">
+          <div class="icon">🌾</div>
+          <h4>Origen de la materia prima</h4>
+          <p style="font-size: 0.8rem;">El bagazo de caña de azúcar proviene de la industria azucarera peruana y es
+            aprovechado como recurso renovable para la fabricación del envase.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">🏭</div>
+          <h4>Proceso de fabricación</h4>
+          <p style="font-size: 0.8rem;">El bagazo es procesado y moldeado para obtener una estructura resistente, ligera
+            y apta para el almacenamiento y transporte de alimentos frescos.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">📦</div>
+          <h4>Uso del envase</h4>
+          <p style="font-size: 0.8rem;">EcoClamshell protege el producto durante toda la cadena logística, ayudando a
+            mantener su calidad y frescura.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">♻️</div>
+          <h4>Fin de vida útil</h4>
+          <p style="font-size: 0.8rem;">Después de su uso, el envase puede compostarse o biodegradarse de forma natural,
+            reduciendo la generación de residuos.</p>
+        </div>
+      </div>
+
+      <h3
+        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green-dark); margin-bottom: 8px;">
+        🌍 BENEFICIOS DEL ECOCLAMSHELL</h3>
+      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;">Innovación
+        sostenible para la conservación de frutas frescas</p>
+
+      <div class="conserv-grid" style="margin-bottom: 40px;">
+        <div class="conserv-card">
+          <div class="icon">♻️</div>
+          <h4>Biodegradable</h4>
+          <p style="font-size: 0.8rem;">Fabricado con materiales de origen vegetal que pueden reintegrarse al medio
+            ambiente.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">💧</div>
+          <h4>Control de humedad</h4>
+          <p style="font-size: 0.8rem;">Incorpora una almohadilla absorbente elaborada con celulosa reciclada y fibra de
+            coco que ayuda a reducir la acumulación de humedad.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">📦</div>
+          <h4>Protección del producto</h4>
+          <p style="font-size: 0.8rem;">Su diseño ayuda a proteger frutas delicadas durante el almacenamiento y
+            transporte.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">🌱</div>
+          <h4>Economía circular</h4>
+          <p style="font-size: 0.8rem;">Aprovecha residuos agroindustriales y les da una nueva utilidad como material de
+            empaque.</p>
+        </div>
+      </div>
+
+      <h3
+        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 8px;">
+        ♻️ ¿QUÉ HACER CON EL ENVASE?</h3>
+      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;">Dale una segunda
+        vida</p>
+
+      <div class="conserv-grid">
+        <div class="conserv-card">
+          <div class="icon">🌱</div>
+          <h4>Compostaje</h4>
+          <p style="font-size: 0.8rem;">Puede incorporarse a sistemas de compostaje para convertirse en materia
+            orgánica.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">🪴</div>
+          <h4>Maceta biodegradable</h4>
+          <p style="font-size: 0.8rem;">Puede reutilizarse para germinar semillas o cultivar pequeñas plantas.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">📦</div>
+          <h4>Reutilización doméstica</h4>
+          <p style="font-size: 0.8rem;">Puede emplearse para almacenar pequeños objetos o materiales ligeros.</p>
+        </div>
+        <div class="conserv-card">
+          <div class="icon">🌍</div>
+          <h4>Disposición responsable</h4>
+          <p style="font-size: 0.8rem;">Al ser biodegradable, genera un impacto ambiental menor en comparación con los
+            envases plásticos tradicionales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── IMPACTO AMBIENTAL ── -->
+  <section class="section impact-section" id="impacto">
+    <h2 class="section-title">IMPACTO AMBIENTAL</h2>
+    <p class="section-subtitle">Comparación que hace la diferencia</p>
+    <div class="impact-grid">
+      <div class="impact-col bad">
+        <h3>Envase Plástico (PET)</h3>
+        <ul class="impact-list">
+          <li>🔴 No biodegradable</li>
+          <li>🔴 Mayor contaminación</li>
+          <li>🔴 Más peso y emisiones</li>
+          <li>🔴 Uso de recursos fósiles</li>
+        </ul>
+      </div>
+      <div style="display:flex;justify-content:center;align-items:center;">
+        <div class="vs-badge">VS</div>
+      </div>
+      <div class="impact-col good">
+        <h3>EcoClamshell</h3>
+        <ul class="impact-list">
+          <li>🟢 100% biodegradable</li>
+          <li>🟢 Compostable en 90 días</li>
+          <li>🟢 78% menos peso</li>
+          <li>🟢 Hecho de residuos agroindustriales</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ── -->
+  <footer id="contacto">
+    <div>
+      <div class="logo" style="margin-bottom:14px">
+        <span class="logo-icon">🌿</span>
+        <div>
+          <div class="logo-text" style="color:#fff">EcoClamshell</div>
+          <div class="logo-sub">Sustainable Packaging</div>
+        </div>
+      </div>
+      <p>Solución sostenible para frutas delicadas, pensada para el mundo.</p>
+      <div class="footer-social">
+        <a href="#" title="Facebook">📘</a>
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="LinkedIn">💼</a>
+      </div>
+    </div>
+    <div class="footer-content">
+      <div>
+        <h4>Contáctanos</h4>
+        <p>✉ info@ecoclamshell.com</p>
+        <p>📞 +51 999 123 456</p>
+        <p>📍 Perú</p>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    © 2026 EcoClamshell – Sustainable Packaging. Todos los derechos reservados.
+  </div>
+
+  <script>
+    // Menú hamburguesa
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Cerrar menú al hacer scroll
+    window.addEventListener('scroll', () => {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('active');
+    });
+  </script>
+
+</body>
+
+</html>
