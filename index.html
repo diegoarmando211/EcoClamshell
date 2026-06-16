@@ -392,8 +392,8 @@
     }
 
     .how-card img {
-      width: 90px;
-      height: 90px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 14px;
@@ -1120,8 +1120,8 @@
       }
 
       .how-card img {
-        width: 70px;
-        height: 70px;
+        width: 110px;
+        height: 110px;
       }
 
       .how-card h4 {
@@ -1262,8 +1262,8 @@
       }
 
       .how-card img {
-        width: 60px;
-        height: 60px;
+        width: 90px;
+        height: 90px;
       }
 
       footer {
@@ -1469,22 +1469,22 @@
     <p class="section-subtitle">Diseño inteligente con 4 componentes clave</p>
     <div class="how-grid">
       <div class="how-card">
-        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&q=80" alt="Bagazo de caña">
+        <img src="bagazo de caña.jpeg" alt="Bagazo de caña">
         <h4>Bagazo de caña</h4>
         <p>Estructura resistente, ligera y biodegradable.</p>
       </div>
       <div class="how-card">
-        <img src="https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?w=200&q=80" alt="Fibra absorbente">
+        <img src="Fibra absorbente.jpeg" alt="Fibra absorbente">
         <h4>Fibra absorbente</h4>
         <p>Absorbe el exceso de humedad y la libera cuando es necesario.</p>
       </div>
       <div class="how-card">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80" alt="Rejilla elevada">
+        <img src="rejia elevada.jpeg" alt="Rejilla elevada">
         <h4>Rejilla elevada</h4>
         <p>Separa la fruta del líquido acumulado y evita aplastamiento.</p>
       </div>
       <div class="how-card">
-        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&q=80" alt="Microperforaciones">
+        <img src="microperforaciones.jpeg" alt="Microperforaciones">
         <h4>Microperforaciones</h4>
         <p>Permiten el intercambio gaseoso y controlan la maduración.</p>
       </div>
@@ -1499,10 +1499,10 @@
       <div class="fruit-card">
         <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=300&q=80" alt="Arándano">
         <h3>Arándano</h3>
-        <p>Rico en antioxidantes, vitaminas y fibra. Delicado y sensible a la humedad.</p>
+        <p>El arándano es una fruta altamente sensible a la humedad y a los cambios de temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el almacenamiento, transporte y exportación.</p>
         <button class="btn-explore green"
           id="btn-explorar-arandano"
-          onclick="abrirModalInformacion()">Explorar</button>
+          onclick="abrirModalInformacion()">Conocer beneficios nutricionales</button>
       </div>
     </div>
   </section>
@@ -1574,8 +1574,10 @@
       .cert-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 16px;
         justify-content: center;
+        align-items: center;
+        padding: 8px 0;
       }
 
       .cert-badge {
@@ -1590,6 +1592,18 @@
         display: flex;
         align-items: center;
         gap: 4px;
+      }
+
+      .cert-img {
+        width: auto;
+        height: 64px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10));
+        transition: transform 0.2s ease;
+      }
+
+      .cert-img:hover {
+        transform: scale(1.08);
       }
     </style>
 
@@ -1610,35 +1624,19 @@
           style="object-fit: contain; background: #fff; padding: 10px;">
       </div>
 
-      <!-- Información del lote -->
-      <div class="traz-card-arandano">
-        <div>
-          <h3>📦 Información del Lote</h3>
-          <ul>
-            <li><strong>Lote:</strong> <code
-                style="background: rgba(0,0,0,0.05); padding: 2px 4px; border-radius: 4px; font-family: monospace; font-size: 0.8rem;">OA-20260620-P01</code>
-            </li>
-            <li><strong>Cosecha:</strong> 18/06/2026</li>
-            <li><strong>Empaque:</strong> 20/06/2026</li>
-            <li><strong>Temperatura:</strong> 2°C – 4°C</li>
-          </ul>
-        </div>
-        <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?w=400&q=80" alt="Empaque de arándanos">
-      </div>
+
 
       <!-- Certificaciones -->
       <div class="traz-card-arandano">
         <div>
           <h3>✅ Certificaciones</h3>
           <div class="cert-list">
-            <span class="cert-badge">🛡️ GLOBALG.A.P.</span>
-            <span class="cert-badge">🤝 GRASP</span>
-            <span class="cert-badge">🔬 FSMA</span>
+            <img src="certificacion global.png" alt="GLOBALG.A.P." class="cert-img">
+            <img src="certificacion grasp.png" alt="GRASP" class="cert-img">
+            <img src="certficacion fsma.png" alt="FSMA" class="cert-img">
             <span class="cert-badge">🇵🇪 CLP – SENASA</span>
           </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&q=80"
-          alt="Certificaciones y Calidad">
       </div>
 
       <!-- Logística de Exportación -->
