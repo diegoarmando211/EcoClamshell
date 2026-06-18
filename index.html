@@ -1383,6 +1383,45 @@
       background: var(--green-dark);
       transform: scale(1.1);
     }
+
+    /* ── LANGUAGE SWITCHER ── */
+    .lang-select-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 15px;
+    }
+    .lang-select-container select {
+      background: var(--cream);
+      color: var(--green-dark);
+      border: 1.5px solid var(--green-light);
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 28px;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234c2870' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      background-size: 14px;
+    }
+    .lang-select-container select:hover {
+      background-color: var(--green-pale);
+      border-color: var(--green-mid);
+    }
+    
+    @media (max-width: 768px) {
+      .lang-select-container {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+    }
   </style>
 </head>
 
@@ -1394,70 +1433,77 @@
       <span class="logo-icon">🌿</span>
       <div>
         <div class="logo-text">EcoClamshell</div>
-        <div class="logo-sub">Sustainable Packaging</div>
+        <div class="logo-sub" data-i18n="logo-sub">Sustainable Packaging</div>
       </div>
     </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#envase">El Envase</a></li>
-      <li><a href="#desarrollo">Desarrollo</a></li>
-      <li><a href="#frutas">Frutas</a></li>
-      <li><a href="#trazabilidad-arandano">Trazabilidad Arándano</a></li>
-      <li><a href="#trazabilidad">Trazabilidad Envase</a></li>
-      <li><a href="#impacto">Impacto</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#inicio" data-i18n="nav-inicio">Inicio</a></li>
+      <li><a href="#envase" data-i18n="nav-envase">El Envase</a></li>
+      <li><a href="#desarrollo" data-i18n="nav-desarrollo">Desarrollo</a></li>
+      <li><a href="#frutas" data-i18n="nav-frutas">Frutas</a></li>
+      <li><a href="#trazabilidad-arandano" data-i18n="nav-trazabilidad-arandano">Trazabilidad Arándano</a></li>
+      <li><a href="#trazabilidad" data-i18n="nav-trazabilidad-envase">Trazabilidad Envase</a></li>
+      <li><a href="#impacto" data-i18n="nav-impacto">Impacto</a></li>
+      <li><a href="#contacto" data-i18n="nav-contacto">Contacto</a></li>
     </ul>
+    <div class="lang-select-container">
+      <select id="langSelect" onchange="setLanguage(this.value)">
+        <option value="de" selected>🇩🇪 DE</option>
+        <option value="es">🇪🇸 ES</option>
+        <option value="en">🇬🇧 EN</option>
+      </select>
+    </div>
     <button class="menu-toggle" id="menuToggle">☰</button>
   </nav>
 
   <!-- ── HERO ── -->
   <section class="hero" id="inicio">
     <div class="hero-text">
-      <h1>EcoClamshell<span>Sustainable Packaging<br>for a Better Future</span></h1>
-      <p>Envase ecológico elaborado a partir de bagazo de caña de azúcar, diseñado para frutas sensibles a la humedad
+      <h1>EcoClamshell<span data-i18n="hero-title-span">Sustainable Packaging<br>for a Better Future</span></h1>
+      <p data-i18n="hero-desc">Envase ecológico elaborado a partir de bagazo de caña de azúcar, diseñado para frutas sensibles a la humedad
         como los arándanos frescos.</p>
       <div class="hero-badges">
-        <div class="badge"><span class="icon">🌿</span>Biodegradable</div>
-        <div class="badge"><span class="icon">💧</span>Control de<br>Humedad</div>
-        <div class="badge"><span class="icon">🌍</span>Listo para<br>Exportación</div>
+        <div class="badge"><span class="icon">🌿</span><span data-i18n="hero-badge-biodegradable">Biodegradable</span></div>
+        <div class="badge"><span class="icon">💧</span><span data-i18n="hero-badge-humidity">Control de<br>Humedad</span></div>
+        <div class="badge"><span class="icon">🌍</span><span data-i18n="hero-badge-export">Listo para<br>Exportación</span></div>
       </div>
       <div class="hero-btns">
-        <a href="#envase" class="btn-primary">Conocer más</a>
-        <a href="#impacto" class="btn-link">Ver impacto ambiental →</a>
+        <a href="#envase" class="btn-primary" data-i18n="hero-btn-more">Conocer más</a>
+        <a href="#impacto" class="btn-link" data-i18n="hero-btn-impact">Ver impacto ambiental →</a>
       </div>
     </div>
     <div class="hero-img">
       <img src="product-box.jpg" alt="Arándanos en envase ecológico">
       <div class="hero-badge-corner">
-        <span>HECHO CON</span>
+        <span data-i18n="hero-badge-corner-made">HECHO CON</span>
         <span class="big">🌾</span>
-        <span>BAGAZO DE<br>CAÑA DE AZÚCAR</span>
+        <span data-i18n="hero-badge-corner-mat">BAGAZO DE<br>CAÑA DE AZÚCAR</span>
       </div>
     </div>
   </section>
 
   <!-- ── PROBLEMA Y SOLUCIÓN ── -->
   <section class="section prob-sol" id="envase">
-    <h2 class="section-title">EL PROBLEMA Y NUESTRA SOLUCIÓN</h2>
+    <h2 class="section-title" data-i18n="prob-sol-title">EL PROBLEMA Y NUESTRA SOLUCIÓN</h2>
     <div class="prob-sol-grid">
       <div class="prob-card">
-        <h3>⚠ Problemas Actuales</h3>
+        <h3 data-i18n="prob-title">⚠ Problemas Actuales</h3>
         <ul class="check-list">
-          <li><span class="ico">❌</span> Acumulación de humedad en el envase</li>
-          <li><span class="ico">❌</span> Crecimiento de hongos y deterioro</li>
-          <li><span class="ico">❌</span> Envases plásticos contaminantes</li>
-          <li><span class="ico">❌</span> Disminución de la vida útil de la fruta</li>
+          <li><span class="ico">❌</span> <span data-i18n="prob-item-1">Acumulación de humedad en el envase</span></li>
+          <li><span class="ico">❌</span> <span data-i18n="prob-item-2">Crecimiento de hongos y deterioro</span></li>
+          <li><span class="ico">❌</span> <span data-i18n="prob-item-3">Envases plásticos contaminantes</span></li>
+          <li><span class="ico">❌</span> <span data-i18n="prob-item-4">Disminución de la vida útil de la fruta</span></li>
         </ul>
         <img src="arandanos-envase.png" alt="Problema plástico" class="prob-sol-img">
       </div>
       <div class="arrow-mid">➡</div>
       <div class="sol-card">
-        <h3>✅ Nuestra Solución: EcoClamshell</h3>
+        <h3 data-i18n="sol-title">✅ Nuestra Solución: EcoClamshell</h3>
         <ul class="check-list">
-          <li><span class="ico">✅</span> Absorbe y regula la humedad (90–95% HR ideal)</li>
-          <li><span class="ico">✅</span> Ventilación inteligente con microperforaciones</li>
-          <li><span class="ico">✅</span> Material biodegradable y compostable</li>
-          <li><span class="ico">✅</span> Mayor conservación y frescura</li>
+          <li><span class="ico">✅</span> <span data-i18n="sol-item-1">Absorbe y regula la humedad (90–95% HR ideal)</span></li>
+          <li><span class="ico">✅</span> <span data-i18n="sol-item-2">Ventilación inteligente con microperforaciones</span></li>
+          <li><span class="ico">✅</span> <span data-i18n="sol-item-3">Material biodegradable y compostable</span></li>
+          <li><span class="ico">✅</span> <span data-i18n="sol-item-4">Mayor conservación y frescura</span></li>
         </ul>
         <img src="solucion.png" alt="Solución ecológica" class="prob-sol-img">
       </div>
@@ -1466,48 +1512,43 @@
 
   <!-- ── CÓMO FUNCIONA ── -->
   <section class="section" id="como-funciona">
-    <h2 class="section-title">¿CÓMO FUNCIONA ECOCLAMSHELL?</h2>
-    <p class="section-subtitle">Diseño inteligente con 4 componentes clave</p>
+    <h2 class="section-title" data-i18n="how-title">¿CÓMO FUNCIONA ECOCLAMSHELL?</h2>
+    <p class="section-subtitle" data-i18n="how-subtitle">Diseño inteligente con 4 componentes clave</p>
     <div class="how-grid">
       <div class="how-card">
         <img src="bagazo de caña.jpeg" alt="Bagazo de caña">
-        <h4>Bagazo de caña</h4>
-        <p>Estructura resistente, ligera y biodegradable.</p>
+        <h4 data-i18n="how-card1-title">Bagazo de caña</h4>
+        <p data-i18n="how-card1-desc">Estructura resistente, ligera y biodegradable.</p>
       </div>
-      <div class="how-card">
-        <img src="Fibra absorbente.jpeg" alt="Fibra absorbente">
-        <h4>Fibra absorbente</h4>
-        <p>Absorbe el exceso de humedad y la libera cuando es necesario.</p>
-      </div>
-      <div class="how-card">
+          <div class="how-card">
         <img src="rejia elevada.jpeg" alt="Rejilla elevada">
-        <h4>Rejilla elevada</h4>
-        <p>Separa la fruta del líquido acumulado y evita aplastamiento.</p>
+        <h4 data-i18n="how-card3-title">Rejilla elevada</h4>
+        <p data-i18n="how-card3-desc">Separa la fruta del líquido acumulado y evita aplastamiento.</p>
       </div>
       <div class="how-card">
         <img src="microperforaciones.jpeg" alt="Microperforaciones">
-        <h4>Microperforaciones</h4>
-        <p>Permiten el intercambio gaseoso y controlan la maduración.</p>
+        <h4 data-i18n="how-card4-title">Microperforaciones</h4>
+        <p data-i18n="how-card4-desc">Permiten el intercambio gaseoso y controlan la maduración.</p>
       </div>
     </div>
   </section>
 
   <!-- ── DESARROLLO DEL PRODUCTO ── -->
   <section class="section" id="desarrollo" style="background: var(--white); padding: 70px 5%;">
-    <h2 class="section-title">DESARROLLO DEL PRODUCTO</h2>
-    <p class="section-subtitle">Conoce el proceso de diseño y elaboración de nuestro prototipo</p>
+    <h2 class="section-title" data-i18n="dev-title">DESARROLLO DEL PRODUCTO</h2>
+    <p class="section-subtitle" data-i18n="dev-subtitle">Conoce el proceso de diseño y elaboración de nuestro prototipo</p>
     
     <div style="max-width: 800px; margin: 0 auto; background: var(--sand); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
-      <h3 style="font-family: 'Playfair Display', serif; color: var(--green-dark); margin-bottom: 16px; font-size: 1.3rem;">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--green-dark); margin-bottom: 16px; font-size: 1.3rem;" data-i18n="dev-video-title">
         🎬 Elaboración del Prototipo del Envase
       </h3>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
         <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" poster="product-box.jpg">
           <source src="video.mp4" type="video/mp4">
-          Tu navegador no soporta la reproducción de video.
+          <span data-i18n="dev-video-fallback">Tu navegador no soporta la reproducción de video.</span>
         </video>
       </div>
-      <p style="color: var(--text-mid); font-size: 0.9rem; margin-top: 16px; line-height: 1.5;">
+      <p style="color: var(--text-mid); font-size: 0.9rem; margin-top: 16px; line-height: 1.5;" data-i18n="dev-video-desc">
         Video demostrativo del desarrollo y modelado de nuestro envase ecológico <strong>EcoClamshell</strong>, integrando el bagazo de caña de azúcar y las rejillas de ventilación.
       </p>
     </div>
@@ -1515,24 +1556,24 @@
 
   <!-- ── SELECCIÓN DE FRUTA ── -->
   <section class="section fruit-section" id="frutas">
-    <h2 class="section-title">SELECCIÓN DE FRUTA</h2>
-    <p class="section-subtitle">Elige tu fruta y descubre información personalizada</p>
+    <h2 class="section-title" data-i18n="fruit-title">SELECCIÓN DE FRUTA</h2>
+    <p class="section-subtitle" data-i18n="fruit-subtitle">Elige tu fruta y descubre información personalizada</p>
     <div class="fruit-grid">
       <div class="fruit-card">
         <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=300&q=80" alt="Arándano">
-        <h3>Arándano</h3>
-        <p>El arándano es una fruta altamente sensible a la humedad y a los cambios de temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el almacenamiento, transporte y exportación.</p>
+        <h3 data-i18n="fruit-card-title">Arándano</h3>
+        <p data-i18n="fruit-card-desc">El arándano es una fruta altamente sensible a la humedad y a los cambios de temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el almacenamiento, transporte y exportación.</p>
         <button class="btn-explore green"
           id="btn-explorar-arandano"
-          onclick="abrirModalInformacion()">Conocer beneficios nutricionales</button>
+          onclick="abrirModalInformacion()" data-i18n="fruit-card-btn">Conocer beneficios nutricionales</button>
       </div>
     </div>
   </section>
 
   <!-- ── TRAZABILIDAD DEL ARÁNDANO ── -->
   <section class="section" id="trazabilidad-arandano" style="background: var(--white); padding: 70px 5%;">
-    <h2 class="section-title">🫐 TRAZABILIDAD DEL ARÁNDANO</h2>
-    <p class="section-subtitle">Del campo al consumidor – Transparencia y calidad garantizada</p>
+    <h2 class="section-title" data-i18n="traz-arandano-title">🫐 TRAZABILIDAD DEL ARÁNDANO</h2>
+    <p class="section-subtitle" data-i18n="traz-arandano-subtitle">Del campo al consumidor – Transparencia y calidad garantizada</p>
 
     <style>
       .traz-grid-arandano {
@@ -1633,13 +1674,13 @@
       <!-- Origen del producto -->
       <div class="traz-card-arandano">
         <div>
-          <h3>📍 Origen del Producto</h3>
+          <h3 data-i18n="traz-arandano-card1-title">📍 Origen del Producto</h3>
           <ul>
-            <li><strong>Empresa:</strong> Oro Azul</li>
-            <li><strong>Ubicación:</strong> San Pablo – Catacaos, Piura, Perú</li>
-            <li><strong>Producto:</strong> Arándano fresco Premium</li>
-            <li><strong>Variedad:</strong> Madeira</li>
-            <li><strong>País de origen:</strong> Perú</li>
+            <li><strong data-i18n="traz-arandano-card1-company">Empresa:</strong> Oro Azul</li>
+            <li><strong data-i18n="traz-arandano-card1-loc">Ubicación:</strong> San Pablo – Catacaos, Piura, Perú</li>
+            <li><strong data-i18n="traz-arandano-card1-prod">Producto:</strong> Arándano fresco Premium</li>
+            <li><strong data-i18n="traz-arandano-card1-var">Variedad:</strong> Madeira</li>
+            <li><strong data-i18n="traz-arandano-card1-country">País de origen:</strong> <span data-i18n="traz-arandano-card1-country-val">Perú</span></li>
           </ul>
         </div>
         <img src="logo-origen.png" alt="Cultivo de Arándanos"
@@ -1651,7 +1692,7 @@
       <!-- Certificaciones -->
       <div class="traz-card-arandano">
         <div>
-          <h3>✅ Certificaciones</h3>
+          <h3 data-i18n="traz-arandano-card2-title">✅ Certificaciones</h3>
           <div class="cert-list">
             <img src="certificacion global.png" alt="GLOBALG.A.P." class="cert-img">
             <img src="certificacion grasp.png" alt="GRASP" class="cert-img">
@@ -1664,11 +1705,11 @@
       <!-- Logística de Exportación -->
       <div class="traz-card-arandano">
         <div>
-          <h3>🚢 Logística de Exportación</h3>
+          <h3 data-i18n="traz-arandano-card3-title">🚢 Logística de Exportación</h3>
           <ul>
-            <li><strong>Puerto de salida:</strong> Paita, Perú</li>
-            <li><strong>Destino:</strong> Hamburgo, Alemania</li>
-            <li><strong>Transporte:</strong> Cadena de frío controlada</li>
+            <li><strong data-i18n="traz-arandano-card3-port">Puerto de salida:</strong> <span data-i18n="traz-arandano-card3-port-val">Paita, Perú</span></li>
+            <li><strong data-i18n="traz-arandano-card3-dest">Destino:</strong> <span data-i18n="traz-arandano-card3-dest-val">Hamburgo, Alemania</span></li>
+            <li><strong data-i18n="traz-arandano-card3-trans">Transporte:</strong> <span data-i18n="traz-arandano-card3-trans-val">Cadena de frío controlada</span></li>
           </ul>
         </div>
         <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=300&q=80"
@@ -1679,12 +1720,12 @@
 
   <!-- ── TRAZABILIDAD DEL ENVASE ── -->
   <section class="section" id="trazabilidad">
-    <h2 class="section-title">🌱 TRAZABILIDAD DEL ENVASE</h2>
-    <p class="section-subtitle">Del residuo agrícola a una solución sostenible</p>
+    <h2 class="section-title" data-i18n="traz-envase-title">🌱 TRAZABILIDAD DEL ENVASE</h2>
+    <p class="section-subtitle" data-i18n="traz-envase-subtitle">Del residuo agrícola a una solución sostenible</p>
 
     <div style="max-width: 900px; margin: 0 auto;">
       <div style="background: var(--sand); border-radius: var(--radius); padding: 32px; margin-bottom: 40px;">
-        <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px;">
+        <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px;" data-i18n="traz-envase-desc">
           <strong>EcoClamshell está fabricado a partir de bagazo de caña de azúcar, un subproducto generado durante la
             producción de azúcar.</strong> En lugar de convertirse en un desecho, este material es transformado en un
           envase biodegradable diseñado para proteger frutas delicadas y reducir el impacto ambiental.
@@ -1694,90 +1735,90 @@
       <div class="conserv-grid" style="margin-bottom: 50px;">
         <div class="conserv-card">
           <div class="icon">🌾</div>
-          <h4>Origen de la materia prima</h4>
-          <p style="font-size: 0.8rem;">El bagazo de caña de azúcar proviene de la industria azucarera peruana y es
+          <h4 data-i18n="traz-envase-card1-title">Origen de la materia prima</h4>
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card1-desc">El bagazo de caña de azúcar proviene de la industria azucarera peruana y es
             aprovechado como recurso renovable para la fabricación del envase.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🏭</div>
-          <h4>Proceso de fabricación</h4>
-          <p style="font-size: 0.8rem;">El bagazo es procesado y moldeado para obtener una estructura resistente, ligera
+          <h4 data-i18n="traz-envase-card2-title">Proceso de fabricación</h4>
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card2-desc">El bagazo es procesado y moldeado para obtener una estructura resistente, ligera
             y apta para el almacenamiento y transporte de alimentos frescos.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">📦</div>
-          <h4>Uso del envase</h4>
-          <p style="font-size: 0.8rem;">EcoClamshell protege el producto durante toda la cadena logística, ayudando a
+          <h4 data-i18n="traz-envase-card3-title">Uso del envase</h4>
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card3-desc">EcoClamshell protege el producto durante toda la cadena logística, ayudando a
             mantener su calidad y frescura.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">♻️</div>
-          <h4>Fin de vida útil</h4>
-          <p style="font-size: 0.8rem;">Después de su uso, el envase puede compostarse o biodegradarse de forma natural,
+          <h4 data-i18n="traz-envase-card4-title">Fin de vida útil</h4>
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card4-desc">Después de su uso, el envase puede compostarse o biodegradarse de forma natural,
             reduciendo la generación de residuos.</p>
         </div>
       </div>
 
       <h3
-        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green-dark); margin-bottom: 8px;">
+        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green-dark); margin-bottom: 8px;" data-i18n="benefits-title">
         🌍 BENEFICIOS DEL ECOCLAMSHELL</h3>
-      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;">Innovación
+      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;" data-i18n="benefits-subtitle">Innovación
         sostenible para la conservación de frutas frescas</p>
 
       <div class="conserv-grid" style="margin-bottom: 40px;">
         <div class="conserv-card">
           <div class="icon">♻️</div>
-          <h4>Biodegradable</h4>
-          <p style="font-size: 0.8rem;">Fabricado con materiales de origen vegetal que pueden reintegrarse al medio
+          <h4 data-i18n="benefits-card1-title">Biodegradable</h4>
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card1-desc">Fabricado con materiales de origen vegetal que pueden reintegrarse al medio
             ambiente.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">💧</div>
-          <h4>Control de humedad</h4>
-          <p style="font-size: 0.8rem;">Incorpora una almohadilla absorbente elaborada con celulosa reciclada y fibra de
+          <h4 data-i18n="benefits-card2-title">Control de humedad</h4>
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card2-desc">Incorpora una almohadilla absorbente elaborada con celulosa reciclada y fibra de
             coco que ayuda a reducir la acumulación de humedad.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">📦</div>
-          <h4>Protección del producto</h4>
-          <p style="font-size: 0.8rem;">Su diseño ayuda a proteger frutas delicadas durante el almacenamiento y
+          <h4 data-i18n="benefits-card3-title">Protección del producto</h4>
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card3-desc">Su diseño ayuda a proteger frutas delicadas durante el almacenamiento y
             transporte.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🌱</div>
-          <h4>Economía circular</h4>
-          <p style="font-size: 0.8rem;">Aprovecha residuos agroindustriales y les da una nueva utilidad como material de
+          <h4 data-i18n="benefits-card4-title">Economía circular</h4>
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card4-desc">Aprovecha residuos agroindustriales y les da una nueva utilidad como material de
             empaque.</p>
         </div>
       </div>
 
       <h3
-        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 8px;">
+        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 8px;" data-i18n="reuse-title">
         ♻️ ¿QUÉ HACER CON EL ENVASE?</h3>
-      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;">Dale una segunda
+      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;" data-i18n="reuse-subtitle">Dale una segunda
         vida</p>
 
       <div class="conserv-grid">
         <div class="conserv-card">
           <div class="icon">🌱</div>
-          <h4>Compostaje</h4>
-          <p style="font-size: 0.8rem;">Puede incorporarse a sistemas de compostaje para convertirse en materia
+          <h4 data-i18n="reuse-card1-title">Compostaje</h4>
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card1-desc">Puede incorporarse a sistemas de compostaje para convertirse en materia
             orgánica.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🪴</div>
-          <h4>Maceta biodegradable</h4>
-          <p style="font-size: 0.8rem;">Puede reutilizarse para germinar semillas o cultivar pequeñas plantas.</p>
+          <h4 data-i18n="reuse-card2-title">Maceta biodegradable</h4>
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card2-desc">Puede reutilizarse para germinar semillas o cultivar pequeñas plantas.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">📦</div>
-          <h4>Reutilización doméstica</h4>
-          <p style="font-size: 0.8rem;">Puede emplearse para almacenar pequeños objetos o materiales ligeros.</p>
+          <h4 data-i18n="reuse-card3-title">Reutilización doméstica</h4>
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card3-desc">Puede emplearse para almacenar pequeños objetos o materiales ligeros.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🌍</div>
-          <h4>Disposición responsable</h4>
-          <p style="font-size: 0.8rem;">Al ser biodegradable, genera un impacto ambiental menor en comparación con los
+          <h4 data-i18n="reuse-card4-title">Disposición responsable</h4>
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card4-desc">Al ser biodegradable, genera un impacto ambiental menor en comparación con los
             envases plásticos tradicionales.</p>
         </div>
       </div>
@@ -1786,16 +1827,16 @@
 
   <!-- ── IMPACTO AMBIENTAL ── -->
   <section class="section impact-section" id="impacto">
-    <h2 class="section-title">IMPACTO AMBIENTAL</h2>
-    <p class="section-subtitle">Comparación que hace la diferencia</p>
+    <h2 class="section-title" data-i18n="impact-title">IMPACTO AMBIENTAL</h2>
+    <p class="section-subtitle" data-i18n="impact-subtitle">Comparación que hace la diferencia</p>
     <div class="impact-grid">
       <div class="impact-col bad">
-        <h3>Envase Plástico (PET)</h3>
+        <h3 data-i18n="impact-pet-title">Envase Plástico (PET)</h3>
         <ul class="impact-list">
-          <li>🔴 No biodegradable</li>
-          <li>🔴 Mayor contaminación</li>
-          <li>🔴 Más peso y emisiones</li>
-          <li>🔴 Uso de recursos fósiles</li>
+          <li data-i18n="impact-pet-1">🔴 No biodegradable</li>
+          <li>🔴 <span data-i18n="impact-pet-2">Mayor contaminación</span></li>
+          <li>🔴 <span data-i18n="impact-pet-3">Más peso y emisiones</span></li>
+          <li>🔴 <span data-i18n="impact-pet-4">Uso de recursos fósiles</span></li>
         </ul>
       </div>
       <div style="display:flex;justify-content:center;align-items:center;">
@@ -1804,10 +1845,10 @@
       <div class="impact-col good">
         <h3>EcoClamshell</h3>
         <ul class="impact-list">
-          <li>🟢 100% biodegradable</li>
-          <li>🟢 Compostable en 90 días</li>
-          <li>🟢 78% menos peso</li>
-          <li>🟢 Hecho de residuos agroindustriales</li>
+          <li>🟢 <span data-i18n="impact-eco-1">100% biodegradable</span></li>
+          <li>🟢 <span data-i18n="impact-eco-2">Compostable en 90 días</span></li>
+          <li>🟢 <span data-i18n="impact-eco-3">78% menos peso</span></li>
+          <li>🟢 <span data-i18n="impact-eco-4">Hecho de residuos agroindustriales</span></li>
         </ul>
       </div>
     </div>
@@ -1821,10 +1862,10 @@
         <span class="logo-icon">🌿</span>
         <div>
           <div class="logo-text" style="color:#fff">EcoClamshell</div>
-          <div class="logo-sub">Sustainable Packaging</div>
+          <div class="logo-sub" data-i18n="logo-sub">Sustainable Packaging</div>
         </div>
       </div>
-      <p>Solución sostenible para frutas delicadas, pensada para el mundo.</p>
+      <p data-i18n="footer-desc">Solución sostenible para frutas delicadas, pensada para el mundo.</p>
       <div class="footer-social">
         <a href="#" title="Facebook">📘</a>
         <a href="#" title="Instagram">📸</a>
@@ -1833,14 +1874,14 @@
     </div>
     <div class="footer-content">
       <div>
-        <h4>Contáctanos</h4>
+        <h4 data-i18n="footer-contact-title">Contáctanos</h4>
         <p>✉ info@ecoclamshell.com</p>
         <p>📞 +51 999 123 456</p>
-        <p>📍 Perú</p>
+        <p>📍 <span data-i18n="footer-contact-loc">Perú</span></p>
       </div>
     </div>
   </footer>
-  <div class="footer-bottom">
+  <div class="footer-bottom" data-i18n="footer-copyright">
     © 2026 EcoClamshell – Sustainable Packaging. Todos los derechos reservados.
   </div>
 
@@ -1866,6 +1907,376 @@
     window.addEventListener('scroll', () => {
       navLinks.classList.remove('active');
       menuToggle.classList.remove('active');
+    });
+
+    // Translation logic and dictionary
+    const translations = {
+      de: {
+        "logo-sub": "Nachhaltige Verpackung",
+        "nav-inicio": "Startseite",
+        "nav-envase": "Die Verpackung",
+        "nav-desarrollo": "Entwicklung",
+        "nav-frutas": "Früchte",
+        "nav-trazabilidad-arandano": "Blaubeer-Rückverfolgbarkeit",
+        "nav-trazabilidad-envase": "Verpackungs-Rückverfolgbarkeit",
+        "nav-impacto": "Auswirkungen",
+        "nav-contacto": "Kontakt",
+        "hero-title-span": "Nachhaltige Verpackung<br>für eine bessere Zukunft",
+        "hero-desc": "Ökologische Verpackung aus Zuckerrohr-Bagasse, entwickelt für feuchtigkeitsempfindliche Früchte wie frische Blaubeeren.",
+        "hero-badge-biodegradable": "Biologisch abbaubar",
+        "hero-badge-humidity": "Feuchtigkeitsregulierung",
+        "hero-badge-export": "Exportbereit",
+        "hero-btn-more": "Mehr erfahren",
+        "hero-btn-impact": "Umweltauswirkungen ansehen →",
+        "hero-badge-corner-made": "HERGESTELLT AUS",
+        "hero-badge-corner-mat": "ZUCKERROHR-BAGASSE",
+        "prob-sol-title": "DAS PROBLEM UND UNSERE LÖSUNG",
+        "prob-title": "⚠ Aktuelle Probleme",
+        "prob-item-1": "Feuchtigkeitsansammlung in der Verpackung",
+        "prob-item-2": "Schimmelbildung und Verderb",
+        "prob-item-3": "Umweltschädliche Plastikverpackungen",
+        "prob-item-4": "Verkürzte Haltbarkeit der Früchte",
+        "sol-title": "✅ Unsere Lösung: EcoClamshell",
+        "sol-item-1": "Absorbiert und reguliert Feuchtigkeit (ideal 90–95% rF)",
+        "sol-item-2": "Intelligente Belüftung durch Mikroperforation",
+        "sol-item-3": "Biologisch abbaubar und kompostierbar",
+        "sol-item-4": "Bessere Konservierung und Frische",
+        "how-title": "WIE FUNKTIONIERT ECOCLAMSHELL?",
+        "how-subtitle": "Intelligentes Design mit 4 Schlüsselkomponenten",
+        "how-card1-title": "Zuckerrohr-Bagasse",
+        "how-card1-desc": "Stabile, leichte und biologisch abbaubare Struktur.",
+        "how-card2-title": "Absorbierende Faser",
+        "how-card2-desc": "Absorbiert überschüssige Feuchtigkeit und gibt sie bei Bedarf ab.",
+        "how-card3-title": "Erhöhtes Gitter",
+        "how-card3-desc": "Trennt die Früchte von angesammelter Flüssigkeit und verhindert Quetschungen.",
+        "how-card4-title": "Mikroperforation",
+        "how-card4-desc": "Ermöglicht Gasaustausch und steuert den Reifungsprozess.",
+        "dev-title": "PRODUKTENTWICKLUNG",
+        "dev-subtitle": "Lernen Sie den Design- und Herstellungsprozess unseres Prototyps kennen",
+        "dev-video-title": "🎬 Herstellung des Verpackungsprototyps",
+        "dev-video-desc": "Demonstrationsvideo zur Entwicklung und Modellierung unserer ökologischen Verpackung EcoClamshell mit integrierter Zuckerrohr-Bagasse und Belüftungsgittern.",
+        "dev-video-fallback": "Ihr Browser unterstützt keine Videowiedergabe.",
+        "fruit-title": "FRUCHTAUSWAHL",
+        "fruit-subtitle": "Wählen Sie Ihre Frucht und entdecken Sie personalisierte Informationen",
+        "fruit-card-title": "Blaubeere",
+        "fruit-card-desc": "Die Blaubeere ist eine Frucht, die sehr empfindlich auf Feuchtigkeit und Temperaturschwankungen reagiert. EcoClamshell wurde entwickelt, um Frische, Qualität und Aussehen während der Lagerung, des Transports und des Exports zu erhalten.",
+        "fruit-card-btn": "Nährwert-Vorteile erfahren",
+        "traz-arandano-title": "🫐 BLAUBEER-RÜCKVERFOLGBARKEIT",
+        "traz-arandano-subtitle": "Vom Feld zum Verbraucher – Transparenz und garantierte Qualität",
+        "traz-arandano-card1-title": "📍 Herkunft des Produkts",
+        "traz-arandano-card1-company": "Unternehmen:",
+        "traz-arandano-card1-loc": "Standort:",
+        "traz-arandano-card1-prod": "Produkt:",
+        "traz-arandano-card1-var": "Sorte:",
+        "traz-arandano-card1-country": "Herkunftsland:",
+        "traz-arandano-card1-country-val": "Peru",
+        "traz-arandano-card2-title": "✅ Zertifizierungen",
+        "traz-arandano-card3-title": "🚢 Exportlogistik",
+        "traz-arandano-card3-port": "Abgangshafen:",
+        "traz-arandano-card3-port-val": "Paita, Peru",
+        "traz-arandano-card3-dest": "Zielort:",
+        "traz-arandano-card3-dest-val": "Hamburg, Deutschland",
+        "traz-arandano-card3-trans": "Transport:",
+        "traz-arandano-card3-trans-val": "Kontrollierte Kühlkette",
+        "traz-envase-title": "🌱 VERPACKUNGS-RÜCKVERFOLGBARKEIT",
+        "traz-envase-subtitle": "Vom landwirtschaftlichen Abfall zur nachhaltigen Lösung",
+        "traz-envase-desc": "EcoClamshell wird aus Zuckerrohr-Bagasse hergestellt, einem Nebenprodukt der Zuckerproduktion. Anstatt als Abfall entsorgt zu werden, verwandelt sich dieses Material in eine biologisch abbaubare Verpackung, die empfindliche Früchte schützt und die Umweltbelastung reduziert.",
+        "traz-envase-card1-title": "Herkunft des Rohstoffs",
+        "traz-envase-card1-desc": "Die Zuckerrohr-Bagasse stammt aus der peruanischen Zuckerindustrie und wird als nachwachsender Rohstoff zur Herstellung der Verpackung genutzt.",
+        "traz-envase-card2-title": "Herstellungsprozess",
+        "traz-envase-card2-desc": "Die Bagasse wird verarbeitet und geformt, um eine widerstandsfähige, leichte Struktur zu erhalten, die für die Lagerung und den Transport frischer Lebensmittel geeignet ist.",
+        "traz-envase-card3-title": "Verwendung der Verpackung",
+        "traz-envase-card3-desc": "EcoClamshell schützt das producto während der gesamten Logistikkette und trägt zum Erhalt von Qualität und Frische bei.",
+        "traz-envase-card4-title": "Ende der Lebensdauer",
+        "traz-envase-card4-desc": "Nach dem Gebrauch kann die Verpackung kompostiert oder auf natürliche Weise biologisch abgebaut werden, was die Abfallmenge reduziert.",
+        "benefits-title": "🌍 VORTEILE VON ECOCLAMSHELL",
+        "benefits-subtitle": "Nachhaltige Innovation zur Konservierung frischer Früchte",
+        "benefits-card1-title": "Biologisch abbaubar",
+        "benefits-card1-desc": "Hergestellt aus pflanzlichen Materialien, die in die Umwelt zurückgeführt werden können.",
+        "benefits-card2-title": "Feuchtigkeitsregulierung",
+        "benefits-card2-desc": "Enthält ein saugfähiges Pad aus recycelter Zellulose und Kokosfaser, das die Ansammlung von Feuchtigkeit reduziert.",
+        "benefits-card3-title": "Produktschutz",
+        "benefits-card3-desc": "Das Design schützt empfindliche Früchte während der Lagerung und des Transports.",
+        "benefits-card4-title": "Kreislaufwirtschaft",
+        "benefits-card4-desc": "Nutzt agroindustrielle Abfälle und verleiht ihnen als Verpackungsmaterial einen neuen Nutzen.",
+        "reuse-title": "♻️ WAS TUN MIT DER VERPACKUNG?",
+        "reuse-subtitle": "Geben Sie ihr ein zweites Leben",
+        "reuse-card1-title": "Kompostierung",
+        "reuse-card1-desc": "Kann in Kompostiersysteme eingebracht werden, um zu organischer Substanz zu werden.",
+        "reuse-card2-title": "Biologisch abbaubarer Blumentopf",
+        "reuse-card2-desc": "Kann zur Keimung von Samen oder zum Anbau kleiner Pflanzen wiederverwendet werden.",
+        "reuse-card3-title": "Häusliche Wiederverwendung",
+        "reuse-card3-desc": "Kann zur Aufbewahrung kleiner Gegenstände oder leichter Materialien verwendet werden.",
+        "reuse-card4-title": "Verantwortungsvolle Entsorgung",
+        "reuse-card4-desc": "Da es biologisch abbaubar ist, hat es eine geringere Umweltbelastung als herkömmliche Plastikverpackungen.",
+        "impact-title": "UMWELTAUSWIRKUNGEN",
+        "impact-subtitle": "Der Vergleich, der den Unterschied macht",
+        "impact-pet-title": "Plastikverpackung (PET)",
+        "impact-pet-1": "Nicht biologisch abbaubar",
+        "impact-pet-2": "Höhere Umweltbelastung",
+        "impact-pet-3": "Mehr Gewicht und Emissionen",
+        "impact-pet-4": "Nutzung fossiler Ressourcen",
+        "impact-eco-1": "100 % biologisch abbaubar",
+        "impact-eco-2": "Kompostierbar in 90 Tagen",
+        "impact-eco-3": "78 % weniger Gewicht",
+        "impact-eco-4": "Hergestellt aus agroindustriellen Abfällen",
+        "footer-desc": "Nachhaltige Lösung für empfindliche Früchte, entwickelt für die Welt.",
+        "footer-contact-title": "Kontaktieren Sie uns",
+        "footer-contact-loc": "Peru",
+        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. Alle Rechte vorbehalten."
+      },
+      es: {
+        "logo-sub": "Sustainable Packaging",
+        "nav-inicio": "Inicio",
+        "nav-envase": "El Envase",
+        "nav-desarrollo": "Desarrollo",
+        "nav-frutas": "Frutas",
+        "nav-trazabilidad-arandano": "Trazabilidad Arándano",
+        "nav-trazabilidad-envase": "Trazabilidad Envase",
+        "nav-impacto": "Impacto",
+        "nav-contacto": "Contacto",
+        "hero-title-span": "Sustainable Packaging<br>for a Better Future",
+        "hero-desc": "Envase ecológico elaborado a partir de bagazo de caña de azúcar, diseñado para frutas sensibles a la humedad como los arándanos frescos.",
+        "hero-badge-biodegradable": "Biodegradable",
+        "hero-badge-humidity": "Control de Humedad",
+        "hero-badge-export": "Listo para Exportación",
+        "hero-btn-more": "Conocer más",
+        "hero-btn-impact": "Ver impacto ambiental →",
+        "hero-badge-corner-made": "HECHO CON",
+        "hero-badge-corner-mat": "BAGAZO DE CAÑA DE AZÚCAR",
+        "prob-sol-title": "EL PROBLEMA Y NUESTRA SOLUCIÓN",
+        "prob-title": "⚠ Problemas Actuales",
+        "prob-item-1": "Acumulación de humedad en el envase",
+        "prob-item-2": "Crecimiento de hongos y deterioro",
+        "prob-item-3": "Envases plásticos contaminantes",
+        "prob-item-4": "Disminución de la vida útil de la fruta",
+        "sol-title": "✅ Nuestra Solución: EcoClamshell",
+        "sol-item-1": "Absorbe y regula la humedad (90–95% HR ideal)",
+        "sol-item-2": "Ventilación inteligente con microperforaciones",
+        "sol-item-3": "Material biodegradable y compostable",
+        "sol-item-4": "Mayor conservación y frescura",
+        "how-title": "¿CÓMO FUNCIONA ECOCLAMSHELL?",
+        "how-subtitle": "Diseño inteligente con 4 componentes clave",
+        "how-card1-title": "Bagazo de caña",
+        "how-card1-desc": "Estructura resistente, ligera y biodegradable.",
+        "how-card2-title": "Fibra absorbente",
+        "how-card2-desc": "Absorbe el exceso de humedad y la libera cuando es necesario.",
+        "how-card3-title": "Rejilla elevada",
+        "how-card3-desc": "Separa la fruta del líquido acumulado y evita aplastamiento.",
+        "how-card4-title": "Microperforaciones",
+        "how-card4-desc": "Permiten el intercambio gaseoso y controlan la maduración.",
+        "dev-title": "DESARROLLO DEL PRODUCTO",
+        "dev-subtitle": "Conoce el proceso de diseño y elaboración de nuestro prototipo",
+        "dev-video-title": "🎬 Elaboración del Prototipo del Envase",
+        "dev-video-desc": "Video demostrativo del desarrollo y modelado de nuestro envase ecológico EcoClamshell, integrando el bagazo de caña de azúcar y las rejillas de ventilación.",
+        "dev-video-fallback": "Tu navegador no soporta la reproducción de video.",
+        "fruit-title": "SELECCIÓN DE FRUTA",
+        "fruit-subtitle": "Elige tu fruta y descubre información personalizada",
+        "fruit-card-title": "Arándano",
+        "fruit-card-desc": "El arándano es una fruta altamente sensible a la humedad y a los cambios de temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el almacenamiento, transporte y exportación.",
+        "fruit-card-btn": "Conocer beneficios nutricionales",
+        "traz-arandano-title": "🫐 TRAZABILIDAD DEL ARÁNDANO",
+        "traz-arandano-subtitle": "Del campo al consumidor – Transparencia y calidad garantizada",
+        "traz-arandano-card1-title": "📍 Origen del Producto",
+        "traz-arandano-card1-company": "Empresa:",
+        "traz-arandano-card1-loc": "Ubicación:",
+        "traz-arandano-card1-prod": "Producto:",
+        "traz-arandano-card1-var": "Variedad:",
+        "traz-arandano-card1-country": "País de origen:",
+        "traz-arandano-card1-country-val": "Perú",
+        "traz-arandano-card2-title": "✅ Certificaciones",
+        "traz-arandano-card3-title": "🚢 Logística de Exportación",
+        "traz-arandano-card3-port": "Puerto de salida:",
+        "traz-arandano-card3-port-val": "Paita, Perú",
+        "traz-arandano-card3-dest": "Destino:",
+        "traz-arandano-card3-dest-val": "Hamburgo, Alemania",
+        "traz-arandano-card3-trans": "Transporte:",
+        "traz-arandano-card3-trans-val": "Cadena de frío controlada",
+        "traz-envase-title": "🌱 TRAZABILIDAD DEL ENVASE",
+        "traz-envase-subtitle": "Del residuo agrícola a una solución sostenible",
+        "traz-envase-desc": "EcoClamshell está fabricado a partir de bagazo de caña de azúcar, un subproducto generado durante la producción de azúcar. En lugar de convertirse en un desecho, este material es transformado en un envase biodegradable diseñado para proteger frutas delicadas y reducir el impacto ambiental.",
+        "traz-envase-card1-title": "Origen de la materia prima",
+        "traz-envase-card1-desc": "El bagazo de caña de azúcar proviene de la industria azucarera peruana y es aprovechado como recurso renovable para la fabricación del envase.",
+        "traz-envase-card2-title": "Proceso de fabricación",
+        "traz-envase-card2-desc": "El bagazo es procesado y moldeado para obtener una estructura resistente, ligera y apta para el almacenamiento y transporte de alimentos frescos.",
+        "traz-envase-card3-title": "Uso del envase",
+        "traz-envase-card3-desc": "EcoClamshell protege el producto durante toda la cadena logística, ayudando a mantener su calidad y frescura.",
+        "traz-envase-card4-title": "Fin de vida útil",
+        "traz-envase-card4-desc": "Después de su uso, el envase puede compostarse o biodegradarse de forma natural, reduciendo la generación de residuos.",
+        "benefits-title": "🌍 BENEFICIOS DEL ECOCLAMSHELL",
+        "benefits-subtitle": "Innovación sostenible para la conservación de frutas frescas",
+        "benefits-card1-title": "Biodegradable",
+        "benefits-card1-desc": "Fabricado con materiales de origen vegetal que pueden reintegrarse al medio ambiente.",
+        "benefits-card2-title": "Control de humedad",
+        "benefits-card2-desc": "Incorpora una almohadilla absorbente elaborada con celulosa reciclada y fibra de coco que ayuda a reducir la acumulación de humedad.",
+        "benefits-card3-title": "Protección del producto",
+        "benefits-card3-desc": "Su diseño ayuda a proteger frutas delicadas durante el almacenamiento y transporte.",
+        "benefits-card4-title": "Economía circular",
+        "benefits-card4-desc": "Aprovecha residuos agroindustriales y les da una nueva utilidad como material de empaque.",
+        "reuse-title": "♻️ ¿QUÉ HACER CON EL ENVASE?",
+        "reuse-subtitle": "Dale una segunda vida",
+        "reuse-card1-title": "Compostaje",
+        "reuse-card1-desc": "Puede incorporarse a sistemas de compostaje para convertirse en materia orgánica.",
+        "reuse-card2-title": "Maceta biodegradable",
+        "reuse-card2-desc": "Puede reutilizarse para germinar semillas o cultivar pequeñas plantas.",
+        "reuse-card3-title": "Reutilización doméstica",
+        "reuse-card3-desc": "Puede emplearse para almacenar pequeños objetos o materiales ligeros.",
+        "reuse-card4-title": "Disposición responsable",
+        "reuse-card4-desc": "Al ser biodegradable, genera un impacto ambiental menor en comparación con los envases plásticos tradicionales.",
+        "impact-title": "IMPACTO AMBIENTAL",
+        "impact-subtitle": "Comparación que hace la diferencia",
+        "impact-pet-title": "Envase Plástico (PET)",
+        "impact-pet-1": "No biodegradable",
+        "impact-pet-2": "Mayor contaminación",
+        "impact-pet-3": "Más peso y emisiones",
+        "impact-pet-4": "Uso de recursos fósiles",
+        "impact-eco-1": "100% biodegradable",
+        "impact-eco-2": "Compostable en 90 días",
+        "impact-eco-3": "78% menos peso",
+        "impact-eco-4": "Hecho de residuos agroindustriales",
+        "footer-desc": "Solución sostenible para frutas delicadas, pensada para el mundo.",
+        "footer-contact-title": "Contáctanos",
+        "footer-contact-loc": "Perú",
+        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. Todos los derechos reservados."
+      },
+      en: {
+        "logo-sub": "Sustainable Packaging",
+        "nav-inicio": "Home",
+        "nav-envase": "The Packaging",
+        "nav-desarrollo": "Development",
+        "nav-frutas": "Fruits",
+        "nav-trazabilidad-arandano": "Blueberry Traceability",
+        "nav-trazabilidad-envase": "Packaging Traceability",
+        "nav-impacto": "Impact",
+        "nav-contacto": "Contact",
+        "hero-title-span": "Sustainable Packaging<br>for a Better Future",
+        "hero-desc": "Eco-friendly packaging made from sugarcane bagasse, designed for moisture-sensitive fruits like fresh blueberries.",
+        "hero-badge-biodegradable": "Biodegradable",
+        "hero-badge-humidity": "Moisture Control",
+        "hero-badge-export": "Ready for Export",
+        "hero-btn-more": "Learn more",
+        "hero-btn-impact": "View environmental impact →",
+        "hero-badge-corner-made": "MADE WITH",
+        "hero-badge-corner-mat": "SUGARCANE BAGASSE",
+        "prob-sol-title": "THE PROBLEM AND OUR SOLUTION",
+        "prob-title": "⚠ Current Problems",
+        "prob-item-1": "Moisture accumulation in the packaging",
+        "prob-item-2": "Mold growth and decay",
+        "prob-item-3": "Polluting plastic packaging",
+        "prob-item-4": "Reduced fruit shelf life",
+        "sol-title": "✅ Our Solution: EcoClamshell",
+        "sol-item-1": "Absorbs and regulates moisture (90–95% RH ideal)",
+        "sol-item-2": "Smart ventilation with micro-perforations",
+        "sol-item-3": "Biodegradable and compostable material",
+        "sol-item-4": "Longer preservation and freshness",
+        "how-title": "HOW DOES ECOCLAMSHELL WORK?",
+        "how-subtitle": "Smart design with 4 key components",
+        "how-card1-title": "Sugarcane bagasse",
+        "how-card1-desc": "Resistant, light, and biodegradable structure.",
+        "how-card2-title": "Absorbent fiber",
+        "how-card2-desc": "Absorbs excess moisture and releases it when needed.",
+        "how-card3-title": "Raised grid",
+        "how-card3-desc": "Separates fruit from accumulated liquid and prevents crushing.",
+        "how-card4-title": "Micro-perforations",
+        "how-card4-desc": "Allow gas exchange and control ripening.",
+        "dev-title": "PRODUCT DEVELOPMENT",
+        "dev-subtitle": "Learn about the design and manufacturing process of our prototype",
+        "dev-video-title": "🎬 Manufacturing of the Packaging Prototype",
+        "dev-video-desc": "Demonstration video of the development and modeling of our ecological packaging EcoClamshell, integrating sugarcane bagasse and ventilation grids.",
+        "dev-video-fallback": "Your browser does not support video playback.",
+        "fruit-title": "FRUIT SELECTION",
+        "fruit-subtitle": "Choose your fruit and discover personalized information",
+        "fruit-card-title": "Blueberry",
+        "fruit-card-desc": "The blueberry is a fruit highly sensitive to moisture and temperature changes. EcoClamshell was designed to help preserve its freshness, quality, and appearance during storage, transport, and export.",
+        "fruit-card-btn": "Learn about nutritional benefits",
+        "traz-arandano-title": "🫐 BLUEBERRY TRACEABILITY",
+        "traz-arandano-subtitle": "From field to consumer – Transparency and guaranteed quality",
+        "traz-arandano-card1-title": "📍 Product Origin",
+        "traz-arandano-card1-company": "Company:",
+        "traz-arandano-card1-loc": "Location:",
+        "traz-arandano-card1-prod": "Product:",
+        "traz-arandano-card1-var": "Variety:",
+        "traz-arandano-card1-country": "Country of origin:",
+        "traz-arandano-card1-country-val": "Peru",
+        "traz-arandano-card2-title": "✅ Certifications",
+        "traz-arandano-card3-title": "🚢 Export Logistics",
+        "traz-arandano-card3-port": "Port of departure:",
+        "traz-arandano-card3-port-val": "Paita, Peru",
+        "traz-arandano-card3-dest": "Destination:",
+        "traz-arandano-card3-dest-val": "Hamburg, Germany",
+        "traz-arandano-card3-trans": "Transport:",
+        "traz-arandano-card3-trans-val": "Controlled cold chain",
+        "traz-envase-title": "🌱 PACKAGING TRACEABILITY",
+        "traz-envase-subtitle": "From agricultural waste to a sustainable solution",
+        "traz-envase-desc": "EcoClamshell is manufactured from sugarcane bagasse, a by-product generated during sugar production. Instead of becoming waste, this material is transformed into biodegradable packaging designed to protect delicate fruits and reduce environmental impact.",
+        "traz-envase-card1-title": "Origin of raw material",
+        "traz-envase-card1-desc": "Sugarcane bagasse comes from the Peruvian sugar industry and is used as a renewable resource for manufacturing the packaging.",
+        "traz-envase-card2-title": "Manufacturing process",
+        "traz-envase-card2-desc": "Bagasse is processed and molded to obtain a resistant, light structure suitable for storing and transporting fresh food.",
+        "traz-envase-card3-title": "Packaging use",
+        "traz-envase-card3-desc": "EcoClamshell protects the product throughout the logistics chain, helping to maintain its quality and freshness.",
+        "traz-envase-card4-title": "End of life cycle",
+        "traz-envase-card4-desc": "After use, the packaging can be composted or naturally biodegraded, reducing waste generation.",
+        "benefits-title": "🌍 BENEFITS OF ECOCLAMSHELL",
+        "benefits-subtitle": "Sustainable innovation for the preservation of fresh fruits",
+        "benefits-card1-title": "Biodegradable",
+        "benefits-card1-desc": "Made from plant-based materials that can reintegrate into the environment.",
+        "benefits-card2-title": "Moisture control",
+        "benefits-card2-desc": "Incorporates an absorbent pad made of recycled cellulose and coconut fiber that helps reduce moisture accumulation.",
+        "benefits-card3-title": "Product protection",
+        "benefits-card3-desc": "Its design helps protect delicate fruits during storage and transport.",
+        "benefits-card4-title": "Circular economy",
+        "benefits-card4-desc": "Takes advantage of agro-industrial waste and gives it a new use as packaging material.",
+        "reuse-title": "♻️ WHAT TO DO WITH THE PACKAGING?",
+        "reuse-subtitle": "Give it a second life",
+        "reuse-card1-title": "Composting",
+        "reuse-card1-desc": "Can be incorporated into composting systems to become organic matter.",
+        "reuse-card2-title": "Biodegradable flowerpot",
+        "reuse-card2-desc": "Can be reused to germinate seeds or grow small plants.",
+        "reuse-card3-title": "Domestic reuse",
+        "reuse-card3-desc": "Can be used to store small objects or light materials.",
+        "reuse-card4-title": "Responsible disposal",
+        "reuse-card4-desc": "Being biodegradable, it generates a lower environmental impact compared to traditional plastic packaging.",
+        "impact-title": "ENVIRONMENTAL IMPACT",
+        "impact-subtitle": "Comparison that makes a difference",
+        "impact-pet-title": "Plastic Packaging (PET)",
+        "impact-pet-1": "Not biodegradable",
+        "impact-pet-2": "Higher pollution",
+        "impact-pet-3": "More weight and emissions",
+        "impact-pet-4": "Use of fossil resources",
+        "impact-eco-1": "100% biodegradable",
+        "impact-eco-2": "Compostable in 90 days",
+        "impact-eco-3": "78% less weight",
+        "impact-eco-4": "Made from agro-industrial waste",
+        "footer-desc": "Sustainable solution for delicate fruits, designed for the world.",
+        "footer-contact-title": "Contact us",
+        "footer-contact-loc": "Peru",
+        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. All rights reserved."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      
+      const langSelect = document.getElementById('langSelect');
+      if (langSelect && langSelect.value !== lang) {
+        langSelect.value = lang;
+      }
+      
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'de';
+      setLanguage(savedLang);
     });
   </script>
 
