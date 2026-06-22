@@ -376,39 +376,208 @@
       margin-top: auto;
     }
 
-    /* ── CÓMO FUNCIONA ── */
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+    /* ── DESARROLLO ECOCLAMSHELL TIMELINE ── */
+    .timeline-container {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
-    .how-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px 18px;
-      box-shadow: var(--shadow);
-      text-align: center;
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #e1d8ee;
+      transform: translateX(-50%);
+      border-radius: 2px;
     }
 
-    .how-card img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 14px;
+    .timeline-step {
+      display: flex;
+      width: 50%;
+      position: relative;
     }
 
-    .how-card h4 {
-      font-size: .9rem;
+    /* Odd steps: on the right, pointing left */
+    .timeline-step:nth-child(odd) {
+      left: 50%;
+      justify-content: flex-start;
+      padding-left: 45px;
+    }
+
+    /* Even steps: on the left, pointing right */
+    .timeline-step:nth-child(even) {
+      left: 0;
+      justify-content: flex-end;
+      padding-right: 45px;
+    }
+
+    /* Dots on the center line */
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--dot-color, var(--green-mid));
+      border: 4px solid var(--white);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-step:nth-child(odd)::after {
+      left: -10px;
+    }
+
+    .timeline-step:nth-child(even)::after {
+      right: -10px;
+    }
+
+    /* The Leaf/Pointing Card */
+    .step-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 24px;
+      border-radius: 18px;
+      position: relative;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Rotated square for pointing effect */
+    .step-card::before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: inherit;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      z-index: -1;
+    }
+
+    .timeline-step:nth-child(odd) .step-card::before {
+      left: -10px;
+      border-bottom-left-radius: 6px;
+    }
+
+    .timeline-step:nth-child(even) .step-card::before {
+      right: -10px;
+      border-top-right-radius: 6px;
+    }
+
+    .step-text {
+      flex: 1;
+    }
+
+    .step-text h3 {
+      font-size: 1.1rem;
       font-weight: 700;
-      color: var(--green-dark);
       margin-bottom: 6px;
     }
 
-    .how-card p {
-      font-size: .8rem;
-      color: var(--text-light);
+    .step-text p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .step-card img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Step Specific Colors & Dot Variables */
+    .step-pulpa {
+      background-color: #e5deff;
+      color: #3b2c6b;
+      --dot-color: #9c7ffa;
+    }
+    .step-absorbente {
+      background-color: #d2f6f4;
+      color: #0e4c49;
+      --dot-color: #26a69a;
+    }
+    .step-rejilla {
+      background-color: #e2f4c9;
+      color: #386a1f;
+      --dot-color: #8bc34a;
+    }
+    .step-microperforaciones {
+      background-color: #fff4ca;
+      color: #826200;
+      --dot-color: #fbc02d;
+    }
+    .step-moldeado {
+      background-color: #ffdcd2;
+      color: #7e2d17;
+      --dot-color: #ff8a65;
+    }
+    .step-final {
+      background-color: #e2f1ff;
+      color: #1a4a75;
+      --dot-color: #42a5f5;
+    }
+
+    /* Responsive Timeline */
+    @media (max-width: 768px) {
+      .timeline-container::before {
+        left: 20px;
+        transform: none;
+      }
+
+      .timeline-step {
+        width: 100% !important;
+        left: 0 !important;
+        padding-left: 45px !important;
+        padding-right: 0 !important;
+        justify-content: flex-start !important;
+      }
+
+      .timeline-step::after {
+        left: 12px !important;
+        right: auto !important;
+      }
+
+      .timeline-step .step-card::before {
+        left: -10px !important;
+        right: auto !important;
+        border-top-right-radius: 0px !important;
+        border-bottom-left-radius: 6px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .step-card {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .step-card img {
+        width: 100%;
+        height: 140px;
+      }
     }
 
     /* ── SELECCIÓN FRUTA ── */
@@ -1510,49 +1679,81 @@
     </div>
   </section>
 
-  <!-- ── CÓMO FUNCIONA ── -->
-  <section class="section" id="como-funciona">
-    <h2 class="section-title" data-i18n="how-title">¿CÓMO FUNCIONA ECOCLAMSHELL?</h2>
-    <p class="section-subtitle" data-i18n="how-subtitle">Diseño inteligente con 4 componentes clave</p>
-    <div class="how-grid">
-      <div class="how-card">
-        <img src="bagazo de caña.jpeg" alt="Bagazo de caña">
-        <h4 data-i18n="how-card1-title">Bagazo de caña</h4>
-        <p data-i18n="how-card1-desc">Estructura resistente, ligera y biodegradable.</p>
+  <!-- ── DESARROLLO DEL ECOCLAMSHELL ── -->
+  <section class="section" id="desarrollo" style="background: var(--white); padding: 70px 5%;">
+    <h2 class="section-title" data-i18n="dev-eco-title">DESARROLLO DEL ECOCLAMSHELL</h2>
+    <p class="section-subtitle" style="text-transform: uppercase;" data-i18n="dev-eco-subtitle">DEL RESIDUO AGRÍCOLA A UNA SOLUCIÓN SOSTENIBLE</p>
+
+    <div class="timeline-container">
+      
+      <!-- Step 1: Obtención de la Pulpa -->
+      <div class="timeline-step">
+        <div class="step-card step-pulpa">
+          <div class="step-text">
+            <h3 data-i18n="step1-title">Obtención de la Pulpa</h3>
+            <p data-i18n="step1-desc">El proceso inicia con el aprovechamiento del bagazo de caña de azúcar, un subproducto agrícola que es transformado en pulpa para fabricar la estructura principal del envase.</p>
+          </div>
+          <img src="pulpa.jpeg" alt="Obtención de la Pulpa">
+        </div>
       </div>
-          <div class="how-card">
-        <img src="rejia elevada.jpeg" alt="Rejilla elevada">
-        <h4 data-i18n="how-card3-title">Rejilla elevada</h4>
-        <p data-i18n="how-card3-desc">Separa la fruta del líquido acumulado y evita aplastamiento.</p>
+
+      <!-- Step 2: Sistema Absorbente Natural -->
+      <div class="timeline-step">
+        <div class="step-card step-absorbente">
+          <div class="step-text">
+            <h3 data-i18n="step2-title">Sistema Absorbente Natural</h3>
+            <p data-i18n="step2-desc">La fibra de coco se incorpora como material absorbente para ayudar a controlar la humedad y prolongar la conservación del producto.</p>
+          </div>
+          <img src="Sistema Absorbente Natural.jpeg" alt="Sistema Absorbente Natural">
+        </div>
       </div>
-      <div class="how-card">
-        <img src="microperforaciones.jpeg" alt="Microperforaciones">
-        <h4 data-i18n="how-card4-title">Microperforaciones</h4>
-        <p data-i18n="how-card4-desc">Permiten el intercambio gaseoso y controlan la maduración.</p>
+
+      <!-- Step 3: Diseño de la Rejilla Elevada -->
+      <div class="timeline-step">
+        <div class="step-card step-rejilla">
+          <div class="step-text">
+            <h3 data-i18n="step3-title">Diseño de la Rejilla Elevada</h3>
+            <p data-i18n="step3-desc">La rejilla elevada evita que la fruta permanezca en contacto con líquidos acumulados, reduciendo el deterioro durante el almacenamiento.</p>
+          </div>
+          <img src="rejia elevada.jpeg" alt="Diseño de la Rejilla Elevada">
+        </div>
       </div>
+
+      <!-- Step 4: Microperforaciones Inteligentes -->
+      <div class="timeline-step">
+        <div class="step-card step-microperforaciones">
+          <div class="step-text">
+            <h3 data-i18n="step4-title">Microperforaciones Inteligentes</h3>
+            <p data-i18n="step4-desc">Las microperforaciones permiten la circulación de aire y favorecen el intercambio gaseoso, ayudando a mantener la frescura de la fruta.</p>
+          </div>
+          <img src="Microperforaciones Inteligentes.jpeg" alt="Microperforaciones Inteligentes">
+        </div>
+      </div>
+
+      <!-- Step 5: Moldeado del Envase -->
+      <div class="timeline-step">
+        <div class="step-card step-moldeado">
+          <div class="step-text">
+            <h3 data-i18n="step5-title">Moldeado del Envase</h3>
+            <p data-i18n="step5-desc">El diseño es moldeado para obtener una estructura resistente, ligera y completamente biodegradable.</p>
+          </div>
+          <img src="Moldeado del Envase.jpeg" alt="Moldeado del Envase">
+        </div>
+      </div>
+
+      <!-- Step 6: EcoClamshell Final (No image yet) -->
+      <div class="timeline-step">
+        <div class="step-card step-final">
+          <div class="step-text">
+            <h3 data-i18n="step6-title">EcoClamshell Final</h3>
+            <p data-i18n="step6-desc">El resultado es un envase sostenible que combina protección, control de humedad y menor impacto ambiental para mercados internacionales.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ── DESARROLLO DEL PRODUCTO ── -->
-  <section class="section" id="desarrollo" style="background: var(--white); padding: 70px 5%;">
-    <h2 class="section-title" data-i18n="dev-title">DESARROLLO DEL PRODUCTO</h2>
-    <p class="section-subtitle" data-i18n="dev-subtitle">Conoce el proceso de diseño y elaboración de nuestro prototipo</p>
-    
-    <div style="max-width: 800px; margin: 0 auto; background: var(--sand); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
-      <h3 style="font-family: 'Playfair Display', serif; color: var(--green-dark); margin-bottom: 16px; font-size: 1.3rem;" data-i18n="dev-video-title">
-        🎬 Elaboración del Prototipo del Envase
-      </h3>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" poster="product-box.jpg">
-          <source src="video.mp4" type="video/mp4">
-          <span data-i18n="dev-video-fallback">Tu navegador no soporta la reproducción de video.</span>
-        </video>
-      </div>
-      <p style="color: var(--text-mid); font-size: 0.9rem; margin-top: 16px; line-height: 1.5;" data-i18n="dev-video-desc">
-        Video demostrativo del desarrollo y modelado de nuestro envase ecológico <strong>EcoClamshell</strong>, integrando el bagazo de caña de azúcar y las rejillas de ventilación.
-      </p>
-    </div>
-  </section>
 
   <!-- ── SELECCIÓN DE FRUTA ── -->
   <section class="section fruit-section" id="frutas">
@@ -1941,21 +2142,20 @@
         "sol-item-2": "Intelligente Belüftung durch Mikroperforation",
         "sol-item-3": "Biologisch abbaubar und kompostierbar",
         "sol-item-4": "Bessere Konservierung und Frische",
-        "how-title": "WIE FUNKTIONIERT ECOCLAMSHELL?",
-        "how-subtitle": "Intelligentes Design mit 4 Schlüsselkomponenten",
-        "how-card1-title": "Zuckerrohr-Bagasse",
-        "how-card1-desc": "Stabile, leichte und biologisch abbaubare Struktur.",
-        "how-card2-title": "Absorbierende Faser",
-        "how-card2-desc": "Absorbiert überschüssige Feuchtigkeit und gibt sie bei Bedarf ab.",
-        "how-card3-title": "Erhöhtes Gitter",
-        "how-card3-desc": "Trennt die Früchte von angesammelter Flüssigkeit und verhindert Quetschungen.",
-        "how-card4-title": "Mikroperforation",
-        "how-card4-desc": "Ermöglicht Gasaustausch und steuert den Reifungsprozess.",
-        "dev-title": "PRODUKTENTWICKLUNG",
-        "dev-subtitle": "Lernen Sie den Design- und Herstellungsprozess unseres Prototyps kennen",
-        "dev-video-title": "🎬 Herstellung des Verpackungsprototyps",
-        "dev-video-desc": "Demonstrationsvideo zur Entwicklung und Modellierung unserer ökologischen Verpackung EcoClamshell mit integrierter Zuckerrohr-Bagasse und Belüftungsgittern.",
-        "dev-video-fallback": "Ihr Browser unterstützt keine Videowiedergabe.",
+        "dev-eco-title": "ENTWICKLUNG VON ECOCLAMSHELL",
+        "dev-eco-subtitle": "VOM LANDWIRTSCHAFTLICHEN ABFALL ZUR NACHHALTIGEN LÖSUNG",
+        "step1-title": "Fruchtfleischgewinnung",
+        "step1-desc": "Der Prozess beginnt mit der Verwertung von Zuckerrohr-Bagasse, einem landwirtschaftlichen Nebenprodukt, das in Zellstoff umgewandelt wird, um die Hauptstruktur der Verpackung herzustellen.",
+        "step2-title": "Natürliches Absorptionssystem",
+        "step2-desc": "Kokosfasern werden als absorbierendes Material eingearbeitet, um die Feuchtigkeit zu kontrollieren und die Produktkonservierung zu verlängern.",
+        "step3-title": "Erhöhtes Gitterdesign",
+        "step3-desc": "Das erhöhte Gitter verhindert, dass die Früchte mit angesammelten Flüssigkeiten in Kontakt bleiben, und verringert so den Verderb während der Lagerung.",
+        "step4-title": "Intelligente Mikroperforationen",
+        "step4-desc": "Mikroperforationen ermöglichen die Luftzirkulation und fördern den Gasaustausch, wodurch die Frische der Früchte erhalten bleibt.",
+        "step5-title": "Formen der Verpackung",
+        "step5-desc": "Das Design wird geformt, um eine widerstandsfähige, leichte und vollständig biologisch abbaubare Struktur zu erhalten.",
+        "step6-title": "Finales EcoClamshell",
+        "step6-desc": "Das Ergebnis ist eine nachhaltige Verpackung, die Schutz, Feuchtigkeitsregulierung und eine geringere Umweltbelastung für internationale Märkte vereint.",
         "fruit-title": "FRUCHTAUSWAHL",
         "fruit-subtitle": "Wählen Sie Ihre Frucht und entdecken Sie personalisierte Informationen",
         "fruit-card-title": "Blaubeere",
@@ -2055,21 +2255,20 @@
         "sol-item-2": "Ventilación inteligente con microperforaciones",
         "sol-item-3": "Material biodegradable y compostable",
         "sol-item-4": "Mayor conservación y frescura",
-        "how-title": "¿CÓMO FUNCIONA ECOCLAMSHELL?",
-        "how-subtitle": "Diseño inteligente con 4 componentes clave",
-        "how-card1-title": "Bagazo de caña",
-        "how-card1-desc": "Estructura resistente, ligera y biodegradable.",
-        "how-card2-title": "Fibra absorbente",
-        "how-card2-desc": "Absorbe el exceso de humedad y la libera cuando es necesario.",
-        "how-card3-title": "Rejilla elevada",
-        "how-card3-desc": "Separa la fruta del líquido acumulado y evita aplastamiento.",
-        "how-card4-title": "Microperforaciones",
-        "how-card4-desc": "Permiten el intercambio gaseoso y controlan la maduración.",
-        "dev-title": "DESARROLLO DEL PRODUCTO",
-        "dev-subtitle": "Conoce el proceso de diseño y elaboración de nuestro prototipo",
-        "dev-video-title": "🎬 Elaboración del Prototipo del Envase",
-        "dev-video-desc": "Video demostrativo del desarrollo y modelado de nuestro envase ecológico EcoClamshell, integrando el bagazo de caña de azúcar y las rejillas de ventilación.",
-        "dev-video-fallback": "Tu navegador no soporta la reproducción de video.",
+        "dev-eco-title": "DESARROLLO DEL ECOCLAMSHELL",
+        "dev-eco-subtitle": "DEL RESIDUO AGRÍCOLA A UNA SOLUCIÓN SOSTENIBLE",
+        "step1-title": "Obtención de la Pulpa",
+        "step1-desc": "El proceso inicia con el aprovechamiento del bagazo de caña de azúcar, un subproducto agrícola que es transformado en pulpa para fabricar la estructura principal del envase.",
+        "step2-title": "Sistema Absorbente Natural",
+        "step2-desc": "La fibra de coco se incorpora como material absorbente para ayudar a controlar la humedad y prolongar la conservación del producto.",
+        "step3-title": "Diseño de la Rejilla Elevada",
+        "step3-desc": "La rejilla elevada evita que la fruta permanezca en contacto con líquidos acumulados, reduciendo el deterioro durante el almacenamiento.",
+        "step4-title": "Microperforaciones Inteligentes",
+        "step4-desc": "Las microperforaciones permiten la circulación de aire y favorecen el intercambio gaseoso, ayudando a mantener la frescura de la fruta.",
+        "step5-title": "Moldeado del Envase",
+        "step5-desc": "El diseño es moldeado para obtener una estructura resistente, ligera y completamente biodegradable.",
+        "step6-title": "EcoClamshell Final",
+        "step6-desc": "El resultado es un envase sostenible que combina protección, control de humedad y menor impacto ambiental para mercados internacionales.",
         "fruit-title": "SELECCIÓN DE FRUTA",
         "fruit-subtitle": "Elige tu fruta y descubre información personalizada",
         "fruit-card-title": "Arándano",
@@ -2169,21 +2368,20 @@
         "sol-item-2": "Smart ventilation with micro-perforations",
         "sol-item-3": "Biodegradable and compostable material",
         "sol-item-4": "Longer preservation and freshness",
-        "how-title": "HOW DOES ECOCLAMSHELL WORK?",
-        "how-subtitle": "Smart design with 4 key components",
-        "how-card1-title": "Sugarcane bagasse",
-        "how-card1-desc": "Resistant, light, and biodegradable structure.",
-        "how-card2-title": "Absorbent fiber",
-        "how-card2-desc": "Absorbs excess moisture and releases it when needed.",
-        "how-card3-title": "Raised grid",
-        "how-card3-desc": "Separates fruit from accumulated liquid and prevents crushing.",
-        "how-card4-title": "Micro-perforations",
-        "how-card4-desc": "Allow gas exchange and control ripening.",
-        "dev-title": "PRODUCT DEVELOPMENT",
-        "dev-subtitle": "Learn about the design and manufacturing process of our prototype",
-        "dev-video-title": "🎬 Manufacturing of the Packaging Prototype",
-        "dev-video-desc": "Demonstration video of the development and modeling of our ecological packaging EcoClamshell, integrating sugarcane bagasse and ventilation grids.",
-        "dev-video-fallback": "Your browser does not support video playback.",
+        "dev-eco-title": "DEVELOPMENT OF ECOCLAMSHELL",
+        "dev-eco-subtitle": "FROM AGRICULTURAL WASTE TO A SUSTAINABLE SOLUTION",
+        "step1-title": "Obtaining the Pulp",
+        "step1-desc": "The process begins with the recovery of sugarcane bagasse, an agricultural by-product that is transformed into pulp to manufacture the main structure of the packaging.",
+        "step2-title": "Natural Absorbent System",
+        "step2-desc": "Coconut fiber is incorporated as an absorbent material to help control moisture and extend product preservation.",
+        "step3-title": "Raised Grid Design",
+        "step3-desc": "The raised grid prevents the fruit from remaining in contact with accumulated liquids, reducing decay during storage.",
+        "step4-title": "Smart Micro-perforations",
+        "step4-desc": "Micro-perforations allow air circulation and promote gas exchange, helping to maintain the freshness of the fruit.",
+        "step5-title": "Molding the Packaging",
+        "step5-desc": "The design is molded to obtain a resistant, light, and completely biodegradable structure.",
+        "step6-title": "Final EcoClamshell",
+        "step6-desc": "The result is a sustainable packaging that combines protection, moisture control, and lower environmental impact for international markets.",
         "fruit-title": "FRUIT SELECTION",
         "fruit-subtitle": "Choose your fruit and discover personalized information",
         "fruit-card-title": "Blueberry",
