@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torta de Limón y Arándanos – Recetas EcoClamshell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #7a6e1a;       /* Amarillo limón oscuro */
+      --primary-dark: #3d3508;  /* Amarillo muy oscuro */
+      --primary-light: #b8a930; /* Amarillo limón brillante */
+      --primary-pale: #fefce6;  /* Fondo amarillo pálido */
+      --accent-purple: #5c2a8c; /* Morado arándanos */
+      --bg: #fdfdf7;
+      --text: #2e2b0a;
+      --text-muted: #7a7437;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(80, 70, 10, 0.1);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 5% 10%, rgba(184, 169, 48, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 95% 85%, rgba(92, 42, 140, 0.04) 0%, transparent 40%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      opacity: 0;
+      animation: fadeInPage 0.8s forwards ease-out;
+    }
+
+    @keyframes fadeInPage {
+      to { opacity: 1; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-purple);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--primary-light);
+      transform: translateX(-4px);
+    }
+
+    /* ── HEADER RECETA ── */
+    .recipe-header {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 30px;
+      border: 1px solid rgba(184, 169, 48, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .recipe-header { grid-template-columns: 1fr; padding: 25px; }
+    }
+
+    .recipe-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-purple);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .recipe-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 480px) {
+      .recipe-title { font-size: 2rem; }
+    }
+
+    .recipe-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .recipe-meta-cards {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .meta-card {
+      background: var(--primary-pale);
+      padding: 12px 18px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+      border: 1px dashed rgba(184, 169, 48, 0.3);
+    }
+
+    .meta-icon { font-size: 1.5rem; }
+    .meta-label {
+      font-size: 0.72rem;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+    }
+    .meta-value {
+      font-weight: 600;
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+    }
+
+    .recipe-header-right {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      height: 320px;
+    }
+
+    .recipe-header-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .recipe-header:hover .recipe-header-right img {
+      transform: scale(1.04);
+    }
+
+    /* ── CUERPO ── */
+    .recipe-body {
+      display: grid;
+      grid-template-columns: 4fr 5fr;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .recipe-body { grid-template-columns: 1fr; }
+    }
+
+    .recipe-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .card-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(184, 169, 48, 0.1);
+    }
+
+    .box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--primary-pale);
+      padding-bottom: 10px;
+    }
+
+    .ingredient-section-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-purple);
+      margin: 16px 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ingredient-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 18px;
+    }
+
+    .ingredient-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .ingredient-item input {
+      margin-top: 4px;
+      accent-color: var(--accent-purple);
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+    }
+
+    .ingredient-item span {
+      font-size: 0.93rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .ingredient-item input:checked + span {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    .present-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .present-item {
+      background: var(--bg);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .present-icon { font-size: 1.2rem; }
+
+    /* Preparación */
+    .prep-section { margin-bottom: 24px; }
+
+    .prep-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .prep-step-num {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent-purple), var(--primary-light));
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(92, 42, 140, 0.2);
+    }
+
+    .prep-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .prep-steps-list {
+      list-style: none;
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      border-left: 2px dashed var(--primary-pale);
+      margin-left: 15px;
+    }
+
+    .prep-step-item {
+      font-size: 0.93rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 8px;
+    }
+
+    .sticker-note {
+      background: #e8f5e8;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid #c8e6c8;
+      font-family: 'Caveat', cursive;
+      font-size: 1.55rem;
+      color: #2e5c2e;
+      line-height: 1.2;
+      text-align: center;
+      position: relative;
+      transform: rotate(0.8deg);
+      margin-top: 20px;
+    }
+
+    .sticker-note::before {
+      content: '📌';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ── BANNER ECOCLAMSHELL ── */
+    .eco-banner {
+      background: linear-gradient(135deg, #5c2a8c 0%, #2e1a4a 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 12px 36px rgba(92, 42, 140, 0.25);
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .eco-banner { flex-direction: column; text-align: center; padding: 30px 24px; }
+    }
+
+    .eco-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .eco-banner-left { flex-direction: column; }
+    }
+
+    .eco-badge-icon {
+      font-size: 2.8rem;
+      background: rgba(255,255,255,0.1);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eco-banner-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .eco-banner-text p {
+      font-size: 0.88rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .eco-banner-right {
+      height: 100px;
+      width: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eco-banner-right img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a href="index.html" class="back-link">← Volver a la página de inicio</a>
+
+    <!-- Encabezado -->
+    <header class="recipe-header">
+      <div class="recipe-header-left">
+        <div class="recipe-category"><span>🌿</span> Recetas con Arándanos</div>
+        <h1 class="recipe-title">Torta de Limón y Arándanos con Frosting de Queso Crema</h1>
+        <p class="recipe-desc">El equilibrio perfecto entre la frescura cítrica del limón y la dulzura intensa de los arándanos, cubierto con un frosting suave y cremoso de queso crema.</p>
+        
+        <div class="recipe-meta-cards">
+          <div class="meta-card">
+            <span class="meta-icon">⏰</span>
+            <div>
+              <span class="meta-label">Tiempo</span>
+              <span class="meta-value">1 h 20 min</span>
+            </div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">👥</span>
+            <div>
+              <span class="meta-label">Porciones</span>
+              <span class="meta-value">16 personas</span>
+            </div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">👨‍🍳</span>
+            <div>
+              <span class="meta-label">Dificultad</span>
+              <span class="meta-value">Media-Alta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-header-right">
+        <img src="Torta de Limón y Arándanos con Frosting de Queso Crema  .jpeg" alt="Torta de Limón y Arándanos">
+      </div>
+    </header>
+
+    <!-- Cuerpo -->
+    <main class="recipe-body">
+      <!-- Columna Izquierda -->
+      <section class="recipe-col-left">
+        <div class="card-box">
+          <h2 class="box-title"><span>🍋</span> Ingredientes</h2>
+
+          <h3 class="ingredient-section-title">Masa</h3>
+          <ul class="ingredient-list">
+            <li class="ingredient-item"><input type="checkbox" id="i1"><span>360 g de harina de trigo</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i2"><span>10 g de polvo de hornear</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i3"><span>3 g de bicarbonato de sodio</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i4"><span>3 g de sal</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i5"><span>180 g de leche</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i6"><span>80 g de jugo de limón recién exprimido</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i7"><span>226 g de mantequilla sin sal</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i8"><span>350 g de azúcar</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i9"><span>12 g de ralladura de limón</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i10"><span>10 g de esencia de vainilla</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i11"><span>4 huevos (aprox. 200 g)</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i12"><span>300 g de arándanos frescos</span></li>
+            <li class="ingredient-item"><input type="checkbox" id="i13"><span>10 g de harina adicional (para cubrir los arándanos)</span></li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h2 class="box-title"><span>✨</span> Presentación</h2>
+          <div class="present-grid">
+            <div class="present-item"><span class="present-icon">🍰</span><span>Aplicar frosting de queso crema sobre la torta completamente fría.</span></div>
+            <div class="present-item"><span class="present-icon">🫐</span><span>Decorar generosamente con arándanos frescos en la parte superior.</span></div>
+            <div class="present-item"><span class="present-icon">🍋</span><span>Añadir unas tiras de ralladura de limón para darle el toque cítrico visual.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Columna Derecha: Preparación -->
+      <section class="card-box">
+        <h2 class="box-title"><span>📜</span> Preparación</h2>
+
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">1</span>
+            <h3 class="prep-section-title">Mezcla de ingredientes secos</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Tamizar la harina, el polvo de hornear, el bicarbonato y la sal en un tazón grande.</li>
+            <li class="prep-step-item">Reservar hasta su uso.</li>
+          </ul>
+        </div>
+
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">2</span>
+            <h3 class="prep-section-title">Mezcla líquida</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Combinar la leche con el jugo de limón en un tazón pequeño.</li>
+            <li class="prep-step-item">Dejar reposar unos 5 minutos — la mezcla se espesará ligeramente.</li>
+          </ul>
+        </div>
+
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">3</span>
+            <h3 class="prep-section-title">Elaboración de la masa</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Batir la mantequilla con el azúcar a velocidad media-alta hasta obtener una mezcla pálida y cremosa (4–5 min).</li>
+            <li class="prep-step-item">Incorporar los huevos uno a uno, batiendo bien tras cada adición.</li>
+            <li class="prep-step-item">Agregar la esencia de vainilla y la ralladura de limón; mezclar.</li>
+            <li class="prep-step-item">Añadir los ingredientes secos en tres tandas, alternando con la mezcla de leche y limón. Iniciar y terminar con los secos.</li>
+            <li class="prep-step-item">Cubrir los arándanos con los 10 g de harina y añadirlos suavemente a la masa con movimientos envolventes.</li>
+          </ul>
+        </div>
+
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">4</span>
+            <h3 class="prep-section-title">Horneado</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Precalentar el horno a 175 °C. Engrasar y enharinar el molde.</li>
+            <li class="prep-step-item">Verter la masa y distribuir de manera uniforme.</li>
+            <li class="prep-step-item">Hornear 45–55 min o hasta que al insertar un palillo salga limpio.</li>
+            <li class="prep-step-item">Dejar enfriar 15 min en el molde y luego desmoldar sobre una rejilla.</li>
+          </ul>
+        </div>
+
+        <div class="sticker-note">
+          "El aroma a limón mientras hornea es simplemente irresistible." 🍋
+        </div>
+      </section>
+    </main>
+
+    <!-- Banner EcoClamshell -->
+    <section class="eco-banner">
+      <div class="eco-banner-left">
+        <div class="eco-badge-icon">🌿</div>
+        <div class="eco-banner-text">
+          <h4>Conserva tus arándanos más frescos</h4>
+          <p>Conserva tus arándanos frescos por más tiempo en nuestros envases EcoClamshell, elaborados con bagazo de caña de azúcar, 100% biodegradables y compostables.</p>
+        </div>
+      </div>
+      <div class="eco-banner-right">
+        <img src="product-box.jpg" alt="Envase EcoClamshell">
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

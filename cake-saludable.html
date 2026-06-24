@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Saludable de Arándanos – Recetas EcoClamshell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2a5c43;      /* Verde saludable */
+      --primary-dark: #123020; /* Verde oscuro */
+      --primary-light: #448c67;/* Verde suave */
+      --primary-pale: #eafcf1;  /* Fondo verde claro */
+      --accent: #dca122;       /* Dorado */
+      --bg: #fafcfb;           /* Crema con matiz verde */
+      --text: #1e3328;
+      --text-muted: #547061;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(26, 58, 40, 0.08);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 5% 10%, rgba(42, 92, 67, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 95% 85%, rgba(42, 92, 67, 0.05) 0%, transparent 40%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      opacity: 0;
+      animation: fadeInPage 0.8s forwards ease-out;
+    }
+
+    @keyframes fadeInPage {
+      to { opacity: 1; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--primary-light);
+      transform: translateX(-4px);
+    }
+
+    /* ── HEADER RECETA ── */
+    .recipe-header {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 30px;
+      border: 1px solid rgba(42, 92, 67, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .recipe-header {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+    }
+
+    .recipe-header-left {
+      z-index: 2;
+    }
+
+    .recipe-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--primary-light);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .recipe-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 480px) {
+      .recipe-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .recipe-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
+    .recipe-meta-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta-card {
+      background: var(--primary-pale);
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+      border: 1px dashed rgba(42, 92, 67, 0.2);
+    }
+
+    .meta-icon {
+      font-size: 1.5rem;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+    }
+
+    .recipe-header-right {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      height: 320px;
+    }
+
+    .recipe-header-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .recipe-header:hover .recipe-header-right img {
+      transform: scale(1.04);
+    }
+
+    /* ── CUERPO DE LA RECETA ── */
+    .recipe-body {
+      display: grid;
+      grid-template-columns: 4fr 5fr;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .recipe-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Columnas */
+    .recipe-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .card-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(42, 92, 67, 0.08);
+    }
+
+    .box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--primary-pale);
+      padding-bottom: 10px;
+    }
+
+    /* Ingredientes Checkbox */
+    .ingredient-section-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin: 16px 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ingredient-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .ingredient-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .ingredient-item input {
+      margin-top: 4px;
+      accent-color: var(--primary-light);
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    .ingredient-item span {
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .ingredient-item input:checked + span {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+
+    /* Presentación */
+    .present-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .present-item {
+      background: var(--bg);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .present-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Preparación Pasos */
+    .prep-section {
+      margin-bottom: 24px;
+    }
+
+    .prep-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .prep-step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-light);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(42, 92, 67, 0.25);
+    }
+
+    .prep-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .prep-steps-list {
+      list-style: none;
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-left: 2px dashed var(--primary-pale);
+      margin-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    .prep-step-item {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 8px;
+    }
+
+    /* Sticker de Nota */
+    .sticker-note {
+      background: #fbf6df;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid #f2e9b8;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: #615024;
+      line-height: 1.2;
+      text-align: center;
+      position: relative;
+      transform: rotate(-1deg);
+      margin-top: 20px;
+    }
+
+    .sticker-note::before {
+      content: '📌';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ── BANNER ECOCLAMSHELL ── */
+    .eco-banner {
+      background: linear-gradient(135deg, #2a5c43 0%, #123020 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 12px 36px rgba(26, 58, 40, 0.25);
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .eco-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 24px;
+      }
+    }
+
+    .eco-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .eco-banner-left {
+        flex-direction: column;
+      }
+    }
+
+    .eco-badge-icon {
+      font-size: 2.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .eco-banner-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .eco-banner-text p {
+      font-size: 0.88rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .eco-banner-right {
+      height: 100px;
+      width: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eco-banner-right img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Enlace de regreso -->
+    <a href="index.html" class="back-link">
+      <span>←</span> Volver a la página de inicio
+    </a>
+
+    <!-- Encabezado de la Receta -->
+    <header class="recipe-header">
+      <div class="recipe-header-left">
+        <div class="recipe-category">
+          <span>🌿</span> Recetas con Arándanos
+        </div>
+        <h1 class="recipe-title">Cake Saludable de Arándanos</h1>
+        <p class="recipe-desc">Un delicioso y esponjoso cake casero sin azúcares añadidos, a base de plátano maduro, yogur griego y arándanos frescos, ideal para hornear en freidora de aire.</p>
+        
+        <div class="recipe-meta-cards">
+          <div class="meta-card">
+            <span class="meta-icon">⏰</span>
+            <div>
+              <span class="meta-label">Tiempo</span>
+              <span class="meta-value">45 min</span>
+            </div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">👥</span>
+            <div>
+              <span class="meta-label">Porciones</span>
+              <span class="meta-value">8 personas</span>
+            </div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">👨‍🍳</span>
+            <div>
+              <span class="meta-label">Dificultad</span>
+              <span class="meta-value">Fácil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-header-right">
+        <img src="Cake Saludable de Arándanos.jpeg" alt="Cake Saludable de Arándanos">
+      </div>
+    </header>
+
+    <!-- Cuerpo de la Receta -->
+    <main class="recipe-body">
+      <!-- Columna Izquierda: Ingredientes y Presentación -->
+      <section class="recipe-col-left">
+        <!-- Tarjeta de Ingredientes -->
+        <div class="card-box">
+          <h2 class="box-title">
+            <span>🍇</span> Ingredientes
+          </h2>
+          
+          <h3 class="ingredient-section-title">Mezcla principal</h3>
+          <ul class="ingredient-list">
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-c1">
+              <span for="ing-c1">2 plátanos maduros</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-c2">
+              <span for="ing-c2">2 cucharadas de yogur griego</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-c3">
+              <span for="ing-c3">3 huevos</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-c4">
+              <span for="ing-c4">1 cucharadita de estevia</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-c5">
+              <span for="ing-c5">2 puñados de arándanos frescos</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta de Presentación -->
+        <div class="card-box">
+          <h2 class="box-title">
+            <span>✨</span> Presentación para degustación
+          </h2>
+          <div class="present-grid">
+            <div class="present-item">
+              <span class="present-icon">📐</span>
+              <span>Cortar en cubos pequeños de 3 × 3 cm.</span>
+            </div>
+            <div class="present-item">
+              <span class="present-icon">🫐</span>
+              <span>Decorar con arándanos frescos en la parte superior.</span>
+            </div>
+            <div class="present-item">
+              <span class="present-icon">🧁</span>
+              <span>Servir en capacillos individuales para porciones prácticas.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Columna Derecha: Preparación -->
+      <section class="card-box">
+        <h2 class="box-title">
+          <span>📜</span> Preparación
+        </h2>
+
+        <!-- Paso 1 -->
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">1</span>
+            <h3 class="prep-section-title">Elaboración de la mezcla</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Triturar los plátanos con ayuda de un tenedor hasta obtener un puré uniforme y sin grumos.</li>
+            <li class="prep-step-item">Agregar el yogur griego, los huevos y la estevia. Mezclar enérgicamente hasta integrar completamente.</li>
+            <li class="prep-step-item">Incorporar los arándanos frescos y mezclar suavemente con movimientos envolventes para evitar que se rompan.</li>
+          </ul>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">2</span>
+            <h3 class="prep-section-title">Cocción</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Verter la mezcla en un recipiente tipo Pyrex o molde apto para freidora de aire.</li>
+            <li class="prep-step-item">Cubrir el molde con papel para hornear o papel manteca para facilitar el desmolde y proteger la superficie.</li>
+            <li class="prep-step-item">Cocinar en freidora de aire a 150 °C durante 37 minutos.</li>
+            <li class="prep-step-item">Retirar con cuidado, dejar enfriar a temperatura ambiente y desmoldar antes de cortar.</li>
+          </ul>
+        </div>
+
+        <!-- Nota autoadhesiva -->
+        <div class="sticker-note">
+          "El bizcocho perfecto para disfrutar sin culpas a cualquier hora del día." ♥
+        </div>
+      </section>
+    </main>
+
+    <!-- Banner EcoClamshell -->
+    <section class="eco-banner">
+      <div class="eco-banner-left">
+        <div class="eco-badge-icon">🌿</div>
+        <div class="eco-banner-text">
+          <h4>Conserva tus arándanos más frescos</h4>
+          <p>Conserva tus arándanos frescos por más tiempo en nuestros envases EcoClamshell, elaborados con bagazo de caña de azúcar, 100% biodegradables y compostables.</p>
+        </div>
+      </div>
+      <div class="eco-banner-right">
+        <img src="product-box.jpg" alt="Envase EcoClamshell">
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

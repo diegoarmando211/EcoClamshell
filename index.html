@@ -1591,6 +1591,100 @@
         margin-right: 10px;
       }
     }
+
+    /* ── SECCIÓN DE RECETAS ── */
+    .recipes-section {
+      background: var(--cream);
+      padding: 70px 5%;
+      text-align: center;
+      border-top: 1px solid var(--green-pale);
+    }
+    
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto 0 auto;
+    }
+    
+    .recipe-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      border: 1px solid var(--green-pale);
+    }
+    
+    .recipe-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(76, 40, 112, 0.18);
+    }
+    
+    .recipe-card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .recipe-card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .recipe-card:hover .recipe-card-img-wrapper img {
+      transform: scale(1.08);
+    }
+    
+    .recipe-card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .recipe-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .recipe-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    
+    .recipe-card-btn {
+      display: inline-block;
+      text-align: center;
+      background: var(--green-mid);
+      color: var(--white);
+      padding: 11px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 12px rgba(76, 40, 112, 0.15);
+    }
+    
+    .recipe-card-btn:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(76, 40, 112, 0.25);
+    }
   </style>
 </head>
 
@@ -2055,6 +2149,62 @@
     </div>
   </section>
 
+  <!-- ── RECETAS CON ARÁNDANOS ── -->
+  <section class="recipes-section" id="recetas">
+    <h2 class="section-title" data-i18n="recipes-title">RECETAS CON ARÁNDANOS</h2>
+    <p class="section-subtitle" data-i18n="recipes-subtitle">Descubre deliciosas recetas que puedes preparar con arándanos frescos</p>
+    
+    <div class="recipes-grid">
+      <!-- Receta 1: Cheesecake de Arándanos -->
+      <div class="recipe-card">
+        <div class="recipe-card-img-wrapper">
+          <img src="Cheesecake de Arándanos .jpeg" alt="Cheesecake de Arándanos">
+        </div>
+        <div class="recipe-card-content">
+          <h3 class="recipe-card-title" data-i18n="recipe1-title">Cheesecake de Arándanos</h3>
+          <p class="recipe-card-desc" data-i18n="recipe1-desc">Un delicioso postre frío con base de avena y nueces, relleno de queso cottage y yogur griego, coronado con mermelada natural de arándanos.</p>
+          <a href="cheesecake-arandanos.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
+        </div>
+      </div>
+
+      <!-- Receta 2: Cake Saludable de Arándanos -->
+      <div class="recipe-card">
+        <div class="recipe-card-img-wrapper">
+          <img src="Cake Saludable de Arándanos.jpeg" alt="Cake Saludable de Arándanos">
+        </div>
+        <div class="recipe-card-content">
+          <h3 class="recipe-card-title" data-i18n="recipe2-title">Cake Saludable de Arándanos</h3>
+          <p class="recipe-card-desc" data-i18n="recipe2-desc">Un bizcocho esponjoso y saludable a base de plátano, yogur griego y arándanos frescos, cocinado a la perfección en freidora de aire.</p>
+          <a href="cake-saludable.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
+        </div>
+      </div>
+
+      <!-- Receta 3: Torta de Limón y Arándanos -->
+      <div class="recipe-card">
+        <div class="recipe-card-img-wrapper">
+          <img src="Torta de Limón y Arándanos con Frosting de Queso Crema  .jpeg" alt="Torta de Limón y Arándanos">
+        </div>
+        <div class="recipe-card-content">
+          <h3 class="recipe-card-title" data-i18n="recipe3-title">Torta de Limón y Arándanos</h3>
+          <p class="recipe-card-desc" data-i18n="recipe3-desc">El equilibrio perfecto entre la acidez del limón y la dulzura de los arándanos, cubierto con un suave frosting de queso crema.</p>
+          <a href="torta-limon.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
+        </div>
+      </div>
+
+      <!-- Receta 4: Carlota de Arándanos -->
+      <div class="recipe-card">
+        <div class="recipe-card-img-wrapper">
+          <img src="Carlota de Arándanos .jpeg" alt="Carlota de Arándanos">
+        </div>
+        <div class="recipe-card-content">
+          <h3 class="recipe-card-title" data-i18n="recipe4-title">Carlota de Arándanos</h3>
+          <p class="recipe-card-desc" data-i18n="recipe4-desc">Un postre frío y cremoso estructurado en capas de galletas y una suave crema de arándanos licuados, cubierto de mermelada natural.</p>
+          <a href="carlota-arandanos.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ── FOOTER ── -->
   <footer id="contacto">
@@ -2223,7 +2373,18 @@
         "footer-desc": "Nachhaltige Lösung für empfindliche Früchte, entwickelt für die Welt.",
         "footer-contact-title": "Kontaktieren Sie uns",
         "footer-contact-loc": "Peru",
-        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. Alle Rechte vorbehalten."
+        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. Alle Rechte vorbehalten.",
+        "recipes-title": "REZEPTE MIT BLAUBEEREN",
+        "recipes-subtitle": "Entdecken Sie leckere Rezepte, die Sie mit frischen Blaubeeren zubereiten können",
+        "recipes-btn": "Rezept anzeigen →",
+        "recipe1-title": "Blaubeer-Cheesecake",
+        "recipe1-desc": "Ein leckeres kaltes Dessert mit einem Boden aus Haferflocken und Nüssen, gefüllt mit Hüttenkäse und griechischem Joghurt, garniert mit natürlicher Blaubeermarmelade.",
+        "recipe2-title": "Gesunder Blaubeerkuchen",
+        "recipe2-desc": "Ein saftiger und gesunder Kuchen aus Banane, griechischem Joghurt und frischen Blaubeeren, perfekt gebacken in der Heißluftfritteuse.",
+        "recipe3-title": "Zitronen-Blaubeer-Torte",
+        "recipe3-desc": "Die perfekte Balance zwischen der Säure der Zitrone und der Süße der Blaubeeren, überzogen mit einem zarten Frischkäse-Frosting.",
+        "recipe4-title": "Blaubeer-Carlota",
+        "recipe4-desc": "Ein kaltes, cremiges Dessert in Schichten aus Keksen und einer feinen Creme aus pürierten Blaubeeren, bedeckt mit natürlicher Marmelade."
       },
       es: {
         "logo-sub": "Sustainable Packaging",
@@ -2336,7 +2497,18 @@
         "footer-desc": "Solución sostenible para frutas delicadas, pensada para el mundo.",
         "footer-contact-title": "Contáctanos",
         "footer-contact-loc": "Perú",
-        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. Todos los derechos reservados."
+        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. Todos los derechos reservados.",
+        "recipes-title": "RECETAS CON ARÁNDANOS",
+        "recipes-subtitle": "Descubre deliciosas recetas que puedes preparar con arándanos frescos",
+        "recipes-btn": "Ver Receta →",
+        "recipe1-title": "Cheesecake de Arándanos",
+        "recipe1-desc": "Un delicioso postre frío con base de avena y nueces, relleno de queso cottage y yogur griego, coronado con mermelada natural de arándanos.",
+        "recipe2-title": "Cake Saludable de Arándanos",
+        "recipe2-desc": "Un bizcocho esponjoso y saludable a base de plátano, yogur griego y arándanos frescos, cocinado a la perfección en freidora de aire.",
+        "recipe3-title": "Torta de Limón y Arándanos",
+        "recipe3-desc": "El equilibrio perfecto entre la acidez del limón y la dulzura de los arándanos, cubierto con un suave frosting de queso crema.",
+        "recipe4-title": "Carlota de Arándanos",
+        "recipe4-desc": "Un postre frío y cremoso estructurado en capas de galletas y una suave crema de arándanos licuados, cubierto de mermelada natural."
       },
       en: {
         "logo-sub": "Sustainable Packaging",
@@ -2449,7 +2621,18 @@
         "footer-desc": "Sustainable solution for delicate fruits, designed for the world.",
         "footer-contact-title": "Contact us",
         "footer-contact-loc": "Peru",
-        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. All rights reserved."
+        "footer-copyright": "© 2026 EcoClamshell – Sustainable Packaging. All rights reserved.",
+        "recipes-title": "BLUEBERRY RECIPES",
+        "recipes-subtitle": "Discover delicious recipes you can make with fresh blueberries",
+        "recipes-btn": "View Recipe →",
+        "recipe1-title": "Blueberry Cheesecake",
+        "recipe1-desc": "A delicious cold dessert with an oatmeal and nut crust, filled with cottage cheese and Greek yogurt, topped with natural blueberry jam.",
+        "recipe2-title": "Healthy Blueberry Cake",
+        "recipe2-desc": "A fluffy and healthy sponge cake made with banana, Greek yogurt, and fresh blueberries, air-fried to perfection.",
+        "recipe3-title": "Lemon Blueberry Cake",
+        "recipe3-desc": "The perfect balance between lemon tartness and blueberry sweetness, finished with a smooth cream cheese frosting.",
+        "recipe4-title": "Blueberry Carlota",
+        "recipe4-desc": "A cold and creamy layered dessert with cookies and blended blueberry cream, topped with homemade blueberry jam."
       }
     };
 

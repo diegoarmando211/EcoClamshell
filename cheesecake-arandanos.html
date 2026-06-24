@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheesecake de Arándanos – Recetas EcoClamshell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #4c2870;      /* Morado elegante */
+      --primary-dark: #221230; /* Arándano profundo */
+      --primary-light: #7943b0;/* Lavanda vibrante */
+      --primary-pale: #f4eafd; /* Fondo lila suave */
+      --accent: #dca122;       /* Dorado */
+      --bg: #faf8fc;           /* Crema violeta */
+      --text: #281e33;
+      --text-muted: #625470;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(34, 18, 48, 0.08);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 5% 10%, rgba(121, 67, 176, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 95% 85%, rgba(121, 67, 176, 0.05) 0%, transparent 40%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      opacity: 0;
+      animation: fadeInPage 0.8s forwards ease-out;
+    }
+
+    @keyframes fadeInPage {
+      to { opacity: 1; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--primary-light);
+      transform: translateX(-4px);
+    }
+
+    /* ── HEADER RECETA ── */
+    .recipe-header {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 30px;
+      border: 1px solid rgba(121, 67, 176, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .recipe-header {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+    }
+
+    .recipe-header-left {
+      z-index: 2;
+    }
+
+    .recipe-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--primary-light);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .recipe-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 480px) {
+      .recipe-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .recipe-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
+    .recipe-meta-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta-card {
+      background: var(--primary-pale);
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+      border: 1px dashed rgba(121, 67, 176, 0.2);
+    }
+
+    .meta-icon {
+      font-size: 1.5rem;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+    }
+
+    .recipe-header-right {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      height: 320px;
+    }
+
+    .recipe-header-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .recipe-header:hover .recipe-header-right img {
+      transform: scale(1.04);
+    }
+
+    /* ── CUERPO DE LA RECETA ── */
+    .recipe-body {
+      display: grid;
+      grid-template-columns: 4fr 5fr;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    @media (max-width: 900px) {
+      .recipe-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Columnas */
+    .recipe-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .card-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(121, 67, 176, 0.08);
+    }
+
+    .box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--primary-pale);
+      padding-bottom: 10px;
+    }
+
+    /* Ingredientes Checkbox */
+    .ingredient-section-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin: 16px 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ingredient-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .ingredient-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .ingredient-item input {
+      margin-top: 4px;
+      accent-color: var(--primary-light);
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    .ingredient-item span {
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .ingredient-item input:checked + span {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+
+    /* Presentación */
+    .present-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .present-item {
+      background: var(--bg);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .present-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Preparación Pasos */
+    .prep-section {
+      margin-bottom: 24px;
+    }
+
+    .prep-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .prep-step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-light);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(121, 67, 176, 0.25);
+    }
+
+    .prep-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .prep-steps-list {
+      list-style: none;
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-left: 2px dashed var(--primary-pale);
+      margin-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    .prep-step-item {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 8px;
+    }
+
+    /* Sticker de Nota */
+    .sticker-note {
+      background: #fbf6df;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+      border: 1px solid #f2e9b8;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: #615024;
+      line-height: 1.2;
+      text-align: center;
+      position: relative;
+      transform: rotate(-1deg);
+      margin-top: 20px;
+    }
+
+    .sticker-note::before {
+      content: '📌';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ── BANNER ECOCLAMSHELL ── */
+    .eco-banner {
+      background: linear-gradient(135deg, #4c2870 0%, #221230 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 12px 36px rgba(34, 18, 48, 0.25);
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .eco-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 24px;
+      }
+    }
+
+    .eco-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .eco-banner-left {
+        flex-direction: column;
+      }
+    }
+
+    .eco-badge-icon {
+      font-size: 2.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .eco-banner-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .eco-banner-text p {
+      font-size: 0.88rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .eco-banner-right {
+      height: 100px;
+      width: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eco-banner-right img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Enlace de regreso -->
+    <a href="index.html" class="back-link">
+      <span>←</span> Volver a la página de inicio
+    </a>
+
+    <!-- Encabezado de la Receta -->
+    <header class="recipe-header">
+      <div class="recipe-header-left">
+        <div class="recipe-category">
+          <span>🌿</span> Recetas con Arándanos
+        </div>
+        <h1 class="recipe-title">Cheesecake de Arándanos</h1>
+        <p class="recipe-desc">Un delicioso postre frío con base crujiente de avena y nueces, relleno de queso cottage y yogur griego, coronado con una mermelada natural de arándanos con semillas de chía.</p>
+        
+        <div class="recipe-meta-cards">
+          <div class="meta-card">
+            <span class="meta-icon">⏰</span>
+            <div>
+              <span class="meta-label">Tiempo</span>
+              <span class="meta-value">2 h 30 min (+ refrigeración)</span>
+            </div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">👥</span>
+            <div>
+              <span class="meta-label">Porciones</span>
+              <span class="meta-value">12 personas</span>
+            </div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">👨‍🍳</span>
+            <div>
+              <span class="meta-label">Dificultad</span>
+              <span class="meta-value">Media</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-header-right">
+        <img src="Cheesecake de Arándanos .jpeg" alt="Cheesecake de Arándanos">
+      </div>
+    </header>
+
+    <!-- Cuerpo de la Receta -->
+    <main class="recipe-body">
+      <!-- Columna Izquierda: Ingredientes y Presentación -->
+      <section class="recipe-col-left">
+        <!-- Tarjeta de Ingredientes -->
+        <div class="card-box">
+          <h2 class="box-title">
+            <span>🍇</span> Ingredientes
+          </h2>
+          
+          <h3 class="ingredient-section-title">Base</h3>
+          <ul class="ingredient-list">
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-b1">
+              <span for="ing-b1">1 taza de avena entera</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-b2">
+              <span for="ing-b2">1/4 taza de nueces</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-b3">
+              <span for="ing-b3">3 cucharadas de miel de abeja</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-b4">
+              <span for="ing-b4">3 cucharadas de aceite de coco derretido</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-b5">
+              <span for="ing-b5">1/2 cucharadita de esencia de vainilla</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-b6">
+              <span for="ing-b6">1 pizca de sal</span>
+            </li>
+          </ul>
+
+          <h3 class="ingredient-section-title">Relleno</h3>
+          <ul class="ingredient-list">
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-r1">
+              <span for="ing-r1">1 taza de queso cottage</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-r2">
+              <span for="ing-r2">1 taza de yogur griego</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-r3">
+              <span for="ing-r3">1/2 taza de miel de abeja</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-r4">
+              <span for="ing-r4">2 huevos</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-r5">
+              <span for="ing-r5">1 cucharadita de esencia de vainilla</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-r6">
+              <span for="ing-r6">1/4 taza de maicena</span>
+            </li>
+          </ul>
+
+          <h3 class="ingredient-section-title">Mermelada de Arándanos</h3>
+          <ul class="ingredient-list">
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-m1">
+              <span for="ing-m1">1 taza de arándanos</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-m2">
+              <span for="ing-m2">1 cucharada de semillas de chía</span>
+            </li>
+            <li class="ingredient-item">
+              <input type="checkbox" id="ing-m3">
+              <span for="ing-m3">3 cucharadas de miel de abeja</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta de Presentación -->
+        <div class="card-box">
+          <h2 class="box-title">
+            <span>✨</span> Presentación para degustación
+          </h2>
+          <div class="present-grid">
+            <div class="present-item">
+              <span class="present-icon">🔪</span>
+              <span>Cortar en cuadrados pequeños.</span>
+            </div>
+            <div class="present-item">
+              <span class="present-icon">🫐</span>
+              <span>Decorar con arándanos frescos enteros.</span>
+            </div>
+            <div class="present-item">
+              <span class="present-icon">🧁</span>
+              <span>Servir en capacillos individuales.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Columna Derecha: Preparación -->
+      <section class="card-box">
+        <h2 class="box-title">
+          <span>📜</span> Preparación
+        </h2>
+
+        <!-- Paso 1 -->
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">1</span>
+            <h3 class="prep-section-title">Elaboración de la base</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Triturar la avena y las nueces hasta obtener una textura similar a harina gruesa.</li>
+            <li class="prep-step-item">Mezclar con la miel, el aceite de coco, la vainilla y la pizca de sal.</li>
+            <li class="prep-step-item">Colocar la mezcla en un molde cuadrado o rectangular previamente engrasado.</li>
+            <li class="prep-step-item">Presionar firmemente para formar una base compacta.</li>
+            <li class="prep-step-item">Hornear a 180 °C durante 10 minutos y dejar enfriar.</li>
+          </ul>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">2</span>
+            <h3 class="prep-section-title">Elaboración del relleno</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Licuar o procesar el queso cottage, el yogur griego, la miel, los huevos, la vainilla y la maicena hasta obtener una mezcla homogénea.</li>
+            <li class="prep-step-item">Verter la preparación sobre la base ya fría.</li>
+            <li class="prep-step-item">Hornear a 160 °C durante 30 a 35 minutos o hasta que el centro esté firme.</li>
+            <li class="prep-step-item">Retirar del horno y dejar enfriar completamente.</li>
+          </ul>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">3</span>
+            <h3 class="prep-section-title">Elaboración de la mermelada</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Cocinar los arándanos a fuego medio hasta que comiencen a deshacerse.</li>
+            <li class="prep-step-item">Añadir la miel y mezclar.</li>
+            <li class="prep-step-item">Retirar del fuego y agregar la chía.</li>
+            <li class="prep-step-item">Dejar reposar de 10 a 15 minutos hasta que espese.</li>
+          </ul>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="prep-section">
+          <div class="prep-section-header">
+            <span class="prep-step-num">4</span>
+            <h3 class="prep-section-title">Montaje final</h3>
+          </div>
+          <ul class="prep-steps-list">
+            <li class="prep-step-item">Distribuir la mermelada sobre el cheesecake ya frío.</li>
+            <li class="prep-step-item">Refrigerar por al menos 2 horas.</li>
+            <li class="prep-step-item">Cortar en cuadrados pequeños para degustación.</li>
+          </ul>
+        </div>
+
+        <!-- Nota autoadhesiva -->
+        <div class="sticker-note">
+          "Cremoso, saludable y con el toque perfecto de frutos rojos." ♥
+        </div>
+      </section>
+    </main>
+
+    <!-- Banner EcoClamshell -->
+    <section class="eco-banner">
+      <div class="eco-banner-left">
+        <div class="eco-badge-icon">🌿</div>
+        <div class="eco-banner-text">
+          <h4>Conserva tus arándanos más frescos</h4>
+          <p>Conserva tus arándanos frescos por más tiempo en nuestros envases EcoClamshell, elaborados con bagazo de caña de azúcar, 100% biodegradables y compostables.</p>
+        </div>
+      </div>
+      <div class="eco-banner-right">
+        <img src="product-box.jpg" alt="Envase EcoClamshell">
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
