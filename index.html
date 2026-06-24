@@ -513,26 +513,31 @@
       color: #3b2c6b;
       --dot-color: #9c7ffa;
     }
+
     .step-absorbente {
       background-color: #d2f6f4;
       color: #0e4c49;
       --dot-color: #26a69a;
     }
+
     .step-rejilla {
       background-color: #e2f4c9;
       color: #386a1f;
       --dot-color: #8bc34a;
     }
+
     .step-microperforaciones {
       background-color: #fff4ca;
       color: #826200;
       --dot-color: #fbc02d;
     }
+
     .step-moldeado {
       background-color: #ffdcd2;
       color: #7e2d17;
       --dot-color: #ff8a65;
     }
+
     .step-final {
       background-color: #e2f1ff;
       color: #1a4a75;
@@ -1502,27 +1507,39 @@
     }
 
     @keyframes fadeInModal {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .modal-inner {
       position: relative;
       max-width: 92vw;
       max-height: 92vh;
-      animation: scaleInModal .28s cubic-bezier(.34,1.56,.64,1);
+      animation: scaleInModal .28s cubic-bezier(.34, 1.56, .64, 1);
     }
 
     @keyframes scaleInModal {
-      from { transform: scale(.85); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
+      from {
+        transform: scale(.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .modal-inner img {
       max-width: 92vw;
       max-height: 88vh;
       border-radius: 16px;
-      box-shadow: 0 24px 80px rgba(0,0,0,.6);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
       object-fit: contain;
       display: block;
     }
@@ -1543,7 +1560,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
       transition: background .2s, transform .2s;
       line-height: 1;
     }
@@ -1560,6 +1577,7 @@
       margin-left: auto;
       margin-right: 15px;
     }
+
     .lang-select-container select {
       background: var(--cream);
       color: var(--green-dark);
@@ -1580,11 +1598,12 @@
       background-position: right 8px center;
       background-size: 14px;
     }
+
     .lang-select-container select:hover {
       background-color: var(--green-pale);
       border-color: var(--green-mid);
     }
-    
+
     @media (max-width: 768px) {
       .lang-select-container {
         margin-left: 0;
@@ -1599,7 +1618,7 @@
       text-align: center;
       border-top: 1px solid var(--green-pale);
     }
-    
+
     .recipes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1607,7 +1626,7 @@
       max-width: 1200px;
       margin: 40px auto 0 auto;
     }
-    
+
     .recipe-card {
       background: var(--white);
       border-radius: var(--radius);
@@ -1619,37 +1638,37 @@
       text-align: left;
       border: 1px solid var(--green-pale);
     }
-    
+
     .recipe-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 16px 40px rgba(76, 40, 112, 0.18);
     }
-    
+
     .recipe-card-img-wrapper {
       position: relative;
       width: 100%;
       height: 220px;
       overflow: hidden;
     }
-    
+
     .recipe-card-img-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    
+
     .recipe-card:hover .recipe-card-img-wrapper img {
       transform: scale(1.08);
     }
-    
+
     .recipe-card-content {
       padding: 24px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
-    
+
     .recipe-card-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
@@ -1657,7 +1676,7 @@
       margin-bottom: 12px;
       line-height: 1.3;
     }
-    
+
     .recipe-card-desc {
       font-size: 0.88rem;
       color: var(--text-mid);
@@ -1665,7 +1684,7 @@
       line-height: 1.5;
       flex-grow: 1;
     }
-    
+
     .recipe-card-btn {
       display: inline-block;
       text-align: center;
@@ -1679,7 +1698,7 @@
       transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 12px rgba(76, 40, 112, 0.15);
     }
-    
+
     .recipe-card-btn:hover {
       background: var(--green-light);
       transform: translateY(-2px);
@@ -1723,12 +1742,16 @@
   <section class="hero" id="inicio">
     <div class="hero-text">
       <h1>EcoClamshell<span data-i18n="hero-title-span">Sustainable Packaging<br>for a Better Future</span></h1>
-      <p data-i18n="hero-desc">Envase ecológico elaborado a partir de bagazo de caña de azúcar, diseñado para frutas sensibles a la humedad
+      <p data-i18n="hero-desc">Envase ecológico elaborado a partir de bagazo de caña de azúcar, diseñado para frutas
+        sensibles a la humedad
         como los arándanos frescos.</p>
       <div class="hero-badges">
-        <div class="badge"><span class="icon">🌿</span><span data-i18n="hero-badge-biodegradable">Biodegradable</span></div>
-        <div class="badge"><span class="icon">💧</span><span data-i18n="hero-badge-humidity">Control de<br>Humedad</span></div>
-        <div class="badge"><span class="icon">🌍</span><span data-i18n="hero-badge-export">Listo para<br>Exportación</span></div>
+        <div class="badge"><span class="icon">🌿</span><span data-i18n="hero-badge-biodegradable">Biodegradable</span>
+        </div>
+        <div class="badge"><span class="icon">💧</span><span data-i18n="hero-badge-humidity">Control
+            de<br>Humedad</span></div>
+        <div class="badge"><span class="icon">🌍</span><span data-i18n="hero-badge-export">Listo
+            para<br>Exportación</span></div>
       </div>
       <div class="hero-btns">
         <a href="#envase" class="btn-primary" data-i18n="hero-btn-more">Conocer más</a>
@@ -1755,7 +1778,8 @@
           <li><span class="ico">❌</span> <span data-i18n="prob-item-1">Acumulación de humedad en el envase</span></li>
           <li><span class="ico">❌</span> <span data-i18n="prob-item-2">Crecimiento de hongos y deterioro</span></li>
           <li><span class="ico">❌</span> <span data-i18n="prob-item-3">Envases plásticos contaminantes</span></li>
-          <li><span class="ico">❌</span> <span data-i18n="prob-item-4">Disminución de la vida útil de la fruta</span></li>
+          <li><span class="ico">❌</span> <span data-i18n="prob-item-4">Disminución de la vida útil de la fruta</span>
+          </li>
         </ul>
         <img src="arandanos-envase.png" alt="Problema plástico" class="prob-sol-img">
       </div>
@@ -1763,8 +1787,10 @@
       <div class="sol-card">
         <h3 data-i18n="sol-title">✅ Nuestra Solución: EcoClamshell</h3>
         <ul class="check-list">
-          <li><span class="ico">✅</span> <span data-i18n="sol-item-1">Absorbe y regula la humedad (90–95% HR ideal)</span></li>
-          <li><span class="ico">✅</span> <span data-i18n="sol-item-2">Ventilación inteligente con microperforaciones</span></li>
+          <li><span class="ico">✅</span> <span data-i18n="sol-item-1">Absorbe y regula la humedad (90–95% HR
+              ideal)</span></li>
+          <li><span class="ico">✅</span> <span data-i18n="sol-item-2">Ventilación inteligente con
+              microperforaciones</span></li>
           <li><span class="ico">✅</span> <span data-i18n="sol-item-3">Material biodegradable y compostable</span></li>
           <li><span class="ico">✅</span> <span data-i18n="sol-item-4">Mayor conservación y frescura</span></li>
         </ul>
@@ -1776,16 +1802,18 @@
   <!-- ── DESARROLLO DEL ECOCLAMSHELL ── -->
   <section class="section" id="desarrollo" style="background: var(--white); padding: 70px 5%;">
     <h2 class="section-title" data-i18n="dev-eco-title">DESARROLLO DEL ECOCLAMSHELL</h2>
-    <p class="section-subtitle" style="text-transform: uppercase;" data-i18n="dev-eco-subtitle">DEL RESIDUO AGRÍCOLA A UNA SOLUCIÓN SOSTENIBLE</p>
+    <p class="section-subtitle" style="text-transform: uppercase;" data-i18n="dev-eco-subtitle">DEL RESIDUO AGRÍCOLA A
+      UNA SOLUCIÓN SOSTENIBLE</p>
 
     <div class="timeline-container">
-      
+
       <!-- Step 1: Obtención de la Pulpa -->
       <div class="timeline-step">
         <div class="step-card step-pulpa">
           <div class="step-text">
             <h3 data-i18n="step1-title">Obtención de la Pulpa</h3>
-            <p data-i18n="step1-desc">El proceso inicia con el aprovechamiento del bagazo de caña de azúcar, un subproducto agrícola que es transformado en pulpa para fabricar la estructura principal del envase.</p>
+            <p data-i18n="step1-desc">El proceso inicia con el aprovechamiento del bagazo de caña de azúcar, un
+              subproducto agrícola que es transformado en pulpa para fabricar la estructura principal del envase.</p>
           </div>
           <img src="pulpa.jpeg" alt="Obtención de la Pulpa">
         </div>
@@ -1796,7 +1824,8 @@
         <div class="step-card step-absorbente">
           <div class="step-text">
             <h3 data-i18n="step2-title">Sistema Absorbente Natural</h3>
-            <p data-i18n="step2-desc">La fibra de coco se incorpora como material absorbente para ayudar a controlar la humedad y prolongar la conservación del producto.</p>
+            <p data-i18n="step2-desc">La fibra de coco se incorpora como material absorbente para ayudar a controlar la
+              humedad y prolongar la conservación del producto.</p>
           </div>
           <img src="Sistema Absorbente Natural.jpeg" alt="Sistema Absorbente Natural">
         </div>
@@ -1807,7 +1836,8 @@
         <div class="step-card step-rejilla">
           <div class="step-text">
             <h3 data-i18n="step3-title">Diseño de la Rejilla Elevada</h3>
-            <p data-i18n="step3-desc">La rejilla elevada evita que la fruta permanezca en contacto con líquidos acumulados, reduciendo el deterioro durante el almacenamiento.</p>
+            <p data-i18n="step3-desc">La rejilla elevada evita que la fruta permanezca en contacto con líquidos
+              acumulados, reduciendo el deterioro durante el almacenamiento.</p>
           </div>
           <img src="rejia elevada.jpeg" alt="Diseño de la Rejilla Elevada">
         </div>
@@ -1818,7 +1848,8 @@
         <div class="step-card step-microperforaciones">
           <div class="step-text">
             <h3 data-i18n="step4-title">Microperforaciones Inteligentes</h3>
-            <p data-i18n="step4-desc">Las microperforaciones permiten la circulación de aire y favorecen el intercambio gaseoso, ayudando a mantener la frescura de la fruta.</p>
+            <p data-i18n="step4-desc">Las microperforaciones permiten la circulación de aire y favorecen el intercambio
+              gaseoso, ayudando a mantener la frescura de la fruta.</p>
           </div>
           <img src="Microperforaciones Inteligentes.jpeg" alt="Microperforaciones Inteligentes">
         </div>
@@ -1829,7 +1860,8 @@
         <div class="step-card step-moldeado">
           <div class="step-text">
             <h3 data-i18n="step5-title">Moldeado del Envase</h3>
-            <p data-i18n="step5-desc">El diseño es moldeado para obtener una estructura resistente, ligera y completamente biodegradable.</p>
+            <p data-i18n="step5-desc">El diseño es moldeado para obtener una estructura resistente, ligera y
+              completamente biodegradable.</p>
           </div>
           <img src="Moldeado del Envase.jpeg" alt="Moldeado del Envase">
         </div>
@@ -1840,7 +1872,8 @@
         <div class="step-card step-final">
           <div class="step-text">
             <h3 data-i18n="step6-title">EcoClamshell Final</h3>
-            <p data-i18n="step6-desc">El resultado es un envase sostenible que combina protección, control de humedad y menor impacto ambiental para mercados internacionales.</p>
+            <p data-i18n="step6-desc">El resultado es un envase sostenible que combina protección, control de humedad y
+              menor impacto ambiental para mercados internacionales.</p>
           </div>
         </div>
       </div>
@@ -1857,10 +1890,11 @@
       <div class="fruit-card">
         <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=300&q=80" alt="Arándano">
         <h3 data-i18n="fruit-card-title">Arándano</h3>
-        <p data-i18n="fruit-card-desc">El arándano es una fruta altamente sensible a la humedad y a los cambios de temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el almacenamiento, transporte y exportación.</p>
-        <button class="btn-explore green"
-          id="btn-explorar-arandano"
-          onclick="abrirModalInformacion()" data-i18n="fruit-card-btn">Conocer beneficios nutricionales</button>
+        <p data-i18n="fruit-card-desc">El arándano es una fruta altamente sensible a la humedad y a los cambios de
+          temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el
+          almacenamiento, transporte y exportación.</p>
+        <button class="btn-explore green" id="btn-explorar-arandano" onclick="abrirModalInformacion()"
+          data-i18n="fruit-card-btn">Conocer beneficios nutricionales</button>
       </div>
     </div>
   </section>
@@ -1868,7 +1902,8 @@
   <!-- ── TRAZABILIDAD DEL ARÁNDANO ── -->
   <section class="section" id="trazabilidad-arandano" style="background: var(--white); padding: 70px 5%;">
     <h2 class="section-title" data-i18n="traz-arandano-title">🫐 TRAZABILIDAD DEL ARÁNDANO</h2>
-    <p class="section-subtitle" data-i18n="traz-arandano-subtitle">Del campo al consumidor – Transparencia y calidad garantizada</p>
+    <p class="section-subtitle" data-i18n="traz-arandano-subtitle">Del campo al consumidor – Transparencia y calidad
+      garantizada</p>
 
     <style>
       .traz-grid-arandano {
@@ -1956,7 +1991,7 @@
         width: auto;
         height: 64px;
         object-fit: contain;
-        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10));
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.10));
         transition: transform 0.2s ease;
       }
 
@@ -1975,7 +2010,8 @@
             <li><strong data-i18n="traz-arandano-card1-loc">Ubicación:</strong> San Pablo – Catacaos, Piura, Perú</li>
             <li><strong data-i18n="traz-arandano-card1-prod">Producto:</strong> Arándano fresco Premium</li>
             <li><strong data-i18n="traz-arandano-card1-var">Variedad:</strong> Madeira</li>
-            <li><strong data-i18n="traz-arandano-card1-country">País de origen:</strong> <span data-i18n="traz-arandano-card1-country-val">Perú</span></li>
+            <li><strong data-i18n="traz-arandano-card1-country">País de origen:</strong> <span
+                data-i18n="traz-arandano-card1-country-val">Perú</span></li>
           </ul>
         </div>
         <img src="logo-origen.png" alt="Cultivo de Arándanos"
@@ -2002,9 +2038,12 @@
         <div>
           <h3 data-i18n="traz-arandano-card3-title">🚢 Logística de Exportación</h3>
           <ul>
-            <li><strong data-i18n="traz-arandano-card3-port">Puerto de salida:</strong> <span data-i18n="traz-arandano-card3-port-val">Paita, Perú</span></li>
-            <li><strong data-i18n="traz-arandano-card3-dest">Destino:</strong> <span data-i18n="traz-arandano-card3-dest-val">Hamburgo, Alemania</span></li>
-            <li><strong data-i18n="traz-arandano-card3-trans">Transporte:</strong> <span data-i18n="traz-arandano-card3-trans-val">Cadena de frío controlada</span></li>
+            <li><strong data-i18n="traz-arandano-card3-port">Puerto de salida:</strong> <span
+                data-i18n="traz-arandano-card3-port-val">Paita, Perú</span></li>
+            <li><strong data-i18n="traz-arandano-card3-dest">Destino:</strong> <span
+                data-i18n="traz-arandano-card3-dest-val">Hamburgo, Alemania</span></li>
+            <li><strong data-i18n="traz-arandano-card3-trans">Transporte:</strong> <span
+                data-i18n="traz-arandano-card3-trans-val">Cadena de frío controlada</span></li>
           </ul>
         </div>
         <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=300&q=80"
@@ -2020,7 +2059,8 @@
 
     <div style="max-width: 900px; margin: 0 auto;">
       <div style="background: var(--sand); border-radius: var(--radius); padding: 32px; margin-bottom: 40px;">
-        <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px;" data-i18n="traz-envase-desc">
+        <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px;"
+          data-i18n="traz-envase-desc">
           <strong>EcoClamshell está fabricado a partir de bagazo de caña de azúcar, un subproducto generado durante la
             producción de azúcar.</strong> En lugar de convertirse en un desecho, este material es transformado en un
           envase biodegradable diseñado para proteger frutas delicadas y reducir el impacto ambiental.
@@ -2031,89 +2071,105 @@
         <div class="conserv-card">
           <div class="icon">🌾</div>
           <h4 data-i18n="traz-envase-card1-title">Origen de la materia prima</h4>
-          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card1-desc">El bagazo de caña de azúcar proviene de la industria azucarera peruana y es
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card1-desc">El bagazo de caña de azúcar proviene de la
+            industria azucarera peruana y es
             aprovechado como recurso renovable para la fabricación del envase.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🏭</div>
           <h4 data-i18n="traz-envase-card2-title">Proceso de fabricación</h4>
-          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card2-desc">El bagazo es procesado y moldeado para obtener una estructura resistente, ligera
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card2-desc">El bagazo es procesado y moldeado para
+            obtener una estructura resistente, ligera
             y apta para el almacenamiento y transporte de alimentos frescos.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">📦</div>
           <h4 data-i18n="traz-envase-card3-title">Uso del envase</h4>
-          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card3-desc">EcoClamshell protege el producto durante toda la cadena logística, ayudando a
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card3-desc">EcoClamshell protege el producto durante toda
+            la cadena logística, ayudando a
             mantener su calidad y frescura.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">♻️</div>
           <h4 data-i18n="traz-envase-card4-title">Fin de vida útil</h4>
-          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card4-desc">Después de su uso, el envase puede compostarse o biodegradarse de forma natural,
+          <p style="font-size: 0.8rem;" data-i18n="traz-envase-card4-desc">Después de su uso, el envase puede
+            compostarse o biodegradarse de forma natural,
             reduciendo la generación de residuos.</p>
         </div>
       </div>
 
       <h3
-        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green-dark); margin-bottom: 8px;" data-i18n="benefits-title">
+        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green-dark); margin-bottom: 8px;"
+        data-i18n="benefits-title">
         🌍 BENEFICIOS DEL ECOCLAMSHELL</h3>
-      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;" data-i18n="benefits-subtitle">Innovación
+      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;"
+        data-i18n="benefits-subtitle">Innovación
         sostenible para la conservación de frutas frescas</p>
 
       <div class="conserv-grid" style="margin-bottom: 40px;">
         <div class="conserv-card">
           <div class="icon">♻️</div>
           <h4 data-i18n="benefits-card1-title">Biodegradable</h4>
-          <p style="font-size: 0.8rem;" data-i18n="benefits-card1-desc">Fabricado con materiales de origen vegetal que pueden reintegrarse al medio
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card1-desc">Fabricado con materiales de origen vegetal que
+            pueden reintegrarse al medio
             ambiente.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">💧</div>
           <h4 data-i18n="benefits-card2-title">Control de humedad</h4>
-          <p style="font-size: 0.8rem;" data-i18n="benefits-card2-desc">Incorpora una almohadilla absorbente elaborada con celulosa reciclada y fibra de
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card2-desc">Incorpora una almohadilla absorbente elaborada
+            con celulosa reciclada y fibra de
             coco que ayuda a reducir la acumulación de humedad.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">📦</div>
           <h4 data-i18n="benefits-card3-title">Protección del producto</h4>
-          <p style="font-size: 0.8rem;" data-i18n="benefits-card3-desc">Su diseño ayuda a proteger frutas delicadas durante el almacenamiento y
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card3-desc">Su diseño ayuda a proteger frutas delicadas
+            durante el almacenamiento y
             transporte.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🌱</div>
           <h4 data-i18n="benefits-card4-title">Economía circular</h4>
-          <p style="font-size: 0.8rem;" data-i18n="benefits-card4-desc">Aprovecha residuos agroindustriales y les da una nueva utilidad como material de
+          <p style="font-size: 0.8rem;" data-i18n="benefits-card4-desc">Aprovecha residuos agroindustriales y les da una
+            nueva utilidad como material de
             empaque.</p>
         </div>
       </div>
 
       <h3
-        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 8px;" data-i18n="reuse-title">
+        style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 8px;"
+        data-i18n="reuse-title">
         ♻️ ¿QUÉ HACER CON EL ENVASE?</h3>
-      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;" data-i18n="reuse-subtitle">Dale una segunda
+      <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-bottom: 30px;"
+        data-i18n="reuse-subtitle">Dale una segunda
         vida</p>
 
       <div class="conserv-grid">
         <div class="conserv-card">
           <div class="icon">🌱</div>
           <h4 data-i18n="reuse-card1-title">Compostaje</h4>
-          <p style="font-size: 0.8rem;" data-i18n="reuse-card1-desc">Puede incorporarse a sistemas de compostaje para convertirse en materia
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card1-desc">Puede incorporarse a sistemas de compostaje para
+            convertirse en materia
             orgánica.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🪴</div>
           <h4 data-i18n="reuse-card2-title">Maceta biodegradable</h4>
-          <p style="font-size: 0.8rem;" data-i18n="reuse-card2-desc">Puede reutilizarse para germinar semillas o cultivar pequeñas plantas.</p>
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card2-desc">Puede reutilizarse para germinar semillas o
+            cultivar pequeñas plantas.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">📦</div>
           <h4 data-i18n="reuse-card3-title">Reutilización doméstica</h4>
-          <p style="font-size: 0.8rem;" data-i18n="reuse-card3-desc">Puede emplearse para almacenar pequeños objetos o materiales ligeros.</p>
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card3-desc">Puede emplearse para almacenar pequeños objetos o
+            materiales ligeros.</p>
         </div>
         <div class="conserv-card">
           <div class="icon">🌍</div>
           <h4 data-i18n="reuse-card4-title">Disposición responsable</h4>
-          <p style="font-size: 0.8rem;" data-i18n="reuse-card4-desc">Al ser biodegradable, genera un impacto ambiental menor en comparación con los
+          <p style="font-size: 0.8rem;" data-i18n="reuse-card4-desc">Al ser biodegradable, genera un impacto ambiental
+            menor en comparación con los
             envases plásticos tradicionales.</p>
         </div>
       </div>
@@ -2152,8 +2208,9 @@
   <!-- ── RECETAS CON ARÁNDANOS ── -->
   <section class="recipes-section" id="recetas">
     <h2 class="section-title" data-i18n="recipes-title">RECETAS CON ARÁNDANOS</h2>
-    <p class="section-subtitle" data-i18n="recipes-subtitle">Descubre deliciosas recetas que puedes preparar con arándanos frescos</p>
-    
+    <p class="section-subtitle" data-i18n="recipes-subtitle">Descubre deliciosas recetas que puedes preparar con
+      arándanos frescos</p>
+
     <div class="recipes-grid">
       <!-- Receta 1: Cheesecake de Arándanos -->
       <div class="recipe-card">
@@ -2162,7 +2219,8 @@
         </div>
         <div class="recipe-card-content">
           <h3 class="recipe-card-title" data-i18n="recipe1-title">Cheesecake de Arándanos</h3>
-          <p class="recipe-card-desc" data-i18n="recipe1-desc">Un delicioso postre frío con base de avena y nueces, relleno de queso cottage y yogur griego, coronado con mermelada natural de arándanos.</p>
+          <p class="recipe-card-desc" data-i18n="recipe1-desc">Un delicioso postre frío con base de avena y nueces,
+            relleno de queso cottage y yogur griego, coronado con mermelada natural de arándanos.</p>
           <a href="cheesecake-arandanos.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
         </div>
       </div>
@@ -2174,7 +2232,8 @@
         </div>
         <div class="recipe-card-content">
           <h3 class="recipe-card-title" data-i18n="recipe2-title">Cake Saludable de Arándanos</h3>
-          <p class="recipe-card-desc" data-i18n="recipe2-desc">Un bizcocho esponjoso y saludable a base de plátano, yogur griego y arándanos frescos, cocinado a la perfección en freidora de aire.</p>
+          <p class="recipe-card-desc" data-i18n="recipe2-desc">Un bizcocho esponjoso y saludable a base de plátano,
+            yogur griego y arándanos frescos, cocinado a la perfección en freidora de aire.</p>
           <a href="cake-saludable.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
         </div>
       </div>
@@ -2186,7 +2245,8 @@
         </div>
         <div class="recipe-card-content">
           <h3 class="recipe-card-title" data-i18n="recipe3-title">Torta de Limón y Arándanos</h3>
-          <p class="recipe-card-desc" data-i18n="recipe3-desc">El equilibrio perfecto entre la acidez del limón y la dulzura de los arándanos, cubierto con un suave frosting de queso crema.</p>
+          <p class="recipe-card-desc" data-i18n="recipe3-desc">El equilibrio perfecto entre la acidez del limón y la
+            dulzura de los arándanos, cubierto con un suave frosting de queso crema.</p>
           <a href="torta-limon.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
         </div>
       </div>
@@ -2198,7 +2258,8 @@
         </div>
         <div class="recipe-card-content">
           <h3 class="recipe-card-title" data-i18n="recipe4-title">Carlota de Arándanos</h3>
-          <p class="recipe-card-desc" data-i18n="recipe4-desc">Un postre frío y cremoso estructurado en capas de galletas y una suave crema de arándanos licuados, cubierto de mermelada natural.</p>
+          <p class="recipe-card-desc" data-i18n="recipe4-desc">Un postre frío y cremoso estructurado en capas de
+            galletas y una suave crema de arándanos licuados, cubierto de mermelada natural.</p>
           <a href="carlota-arandanos.html" class="recipe-card-btn" data-i18n="recipes-btn">Ver Receta →</a>
         </div>
       </div>
@@ -2638,12 +2699,12 @@
 
     function setLanguage(lang) {
       document.documentElement.lang = lang;
-      
+
       const langSelect = document.getElementById('langSelect');
       if (langSelect && langSelect.value !== lang) {
         langSelect.value = lang;
       }
-      
+
       const elements = document.querySelectorAll('[data-i18n]');
       elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -2651,7 +2712,7 @@
           element.innerHTML = translations[lang][key];
         }
       });
-      
+
       localStorage.setItem('preferredLanguage', lang);
     }
 
@@ -2663,7 +2724,7 @@
 
   <!-- ── MODAL INFORMACIÓN ── -->
   <div id="modal-informacion" role="dialog" aria-modal="true" aria-label="Información del Arándano"
-       onclick="if(event.target===this) cerrarModalInformacion()">
+    onclick="if(event.target===this) cerrarModalInformacion()">
     <div class="modal-inner">
       <button class="modal-close" onclick="cerrarModalInformacion()" aria-label="Cerrar">✕</button>
       <img src="informacion.png" alt="Información del Arándano" />
@@ -2681,7 +2742,7 @@
       m.classList.remove('open');
       document.body.style.overflow = '';
     }
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') cerrarModalInformacion();
     });
   </script>
