@@ -2515,11 +2515,33 @@
         }
       });
 
-      localStorage.setItem('preferredLanguage', lang);
+      try {
+        localStorage.setItem('preferredLanguage', lang);
+      } catch (e) {
+        console.warn('localStorage is not accessible:', e);
+      }
+    }
+
+    function getSavedLanguage() {
+      try {
+        const saved = localStorage.getItem('preferredLanguage');
+        if (saved) return saved;
+      } catch (e) {
+        console.warn('localStorage is not accessible:', e);
+      }
+      try {
+        const browserLang = (navigator.language || navigator.userLanguage || '').substring(0, 2).toLowerCase();
+        if (['de', 'es', 'en'].includes(browserLang)) {
+          return browserLang;
+        }
+      } catch (e) {
+        console.warn('Navigator language is not accessible:', e);
+      }
+      return 'de';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('preferredLanguage') || 'de';
+      const savedLang = getSavedLanguage();
       setLanguage(savedLang);
     });
   </script>

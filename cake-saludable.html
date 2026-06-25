@@ -708,7 +708,24 @@
       "banner-desc": "Keep your fresh blueberries fresher for longer in our EcoClamshell containers, made from sugarcane bagasse, 100% biodegradable and compostable."
     }
   };
-  const lang = localStorage.getItem('preferredLanguage') || 'de';
+  function getSavedLanguage() {
+    try {
+      const saved = localStorage.getItem('preferredLanguage');
+      if (saved) return saved;
+    } catch (e) {
+      console.warn('localStorage is not accessible:', e);
+    }
+    try {
+      const browserLang = (navigator.language || navigator.userLanguage || '').substring(0, 2).toLowerCase();
+      if (['de', 'es', 'en'].includes(browserLang)) {
+        return browserLang;
+      }
+    } catch (e) {
+      console.warn('Navigator language is not accessible:', e);
+    }
+    return 'de';
+  }
+  const lang = getSavedLanguage();
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const k = el.getAttribute('data-i18n');
     if (t[lang] && t[lang][k]) el.innerHTML = t[lang][k];
