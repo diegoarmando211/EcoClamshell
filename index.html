@@ -1723,7 +1723,7 @@
       <li><a href="#envase" data-i18n="nav-envase">El Envase</a></li>
       <li><a href="#desarrollo" data-i18n="nav-desarrollo">Desarrollo</a></li>
       <li><a href="#frutas" data-i18n="nav-frutas">Frutas</a></li>
-      <li><a href="#trazabilidad-arandano" data-i18n="nav-trazabilidad-arandano">Trazabilidad Arándano</a></li>
+
       <li><a href="#trazabilidad" data-i18n="nav-trazabilidad-envase">Trazabilidad Envase</a></li>
       <li><a href="#impacto" data-i18n="nav-impacto">Impacto</a></li>
       <li><a href="#contacto" data-i18n="nav-contacto">Contacto</a></li>
@@ -1899,158 +1899,7 @@
     </div>
   </section>
 
-  <!-- ── TRAZABILIDAD DEL ARÁNDANO ── -->
-  <section class="section" id="trazabilidad-arandano" style="background: var(--white); padding: 70px 5%;">
-    <h2 class="section-title" data-i18n="traz-arandano-title">🫐 TRAZABILIDAD DEL ARÁNDANO</h2>
-    <p class="section-subtitle" data-i18n="traz-arandano-subtitle">Del campo al consumidor – Transparencia y calidad
-      garantizada</p>
 
-    <style>
-      .traz-grid-arandano {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 24px;
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-
-      .traz-card-arandano {
-        background: var(--cream);
-        border-radius: var(--radius);
-        padding: 24px;
-        box-shadow: var(--shadow);
-        border-top: 4px solid var(--green-mid);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .traz-card-arandano:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 40px rgba(26, 58, 26, .18);
-      }
-
-      .traz-card-arandano h3 {
-        font-family: 'Playfair Display', serif;
-        color: var(--green-dark);
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .traz-card-arandano ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 16px 0;
-      }
-
-      .traz-card-arandano li {
-        font-size: 0.85rem;
-        color: var(--text-mid);
-        margin-bottom: 8px;
-        line-height: 1.4;
-      }
-
-      .traz-card-arandano img {
-        width: 100%;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-top: auto;
-      }
-
-      .cert-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 0;
-      }
-
-      .cert-badge {
-        background: var(--white);
-        color: var(--green-dark);
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        border: 1px solid var(--green-pale);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .cert-img {
-        width: auto;
-        height: 64px;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.10));
-        transition: transform 0.2s ease;
-      }
-
-      .cert-img:hover {
-        transform: scale(1.08);
-      }
-    </style>
-
-    <div class="traz-grid-arandano">
-      <!-- Origen del producto -->
-      <div class="traz-card-arandano">
-        <div>
-          <h3 data-i18n="traz-arandano-card1-title">📍 Origen del Producto</h3>
-          <ul>
-            <li><strong data-i18n="traz-arandano-card1-company">Empresa:</strong> Oro Azul</li>
-            <li><strong data-i18n="traz-arandano-card1-loc">Ubicación:</strong> San Pablo – Catacaos, Piura, Perú</li>
-            <li><strong data-i18n="traz-arandano-card1-prod">Producto:</strong> Arándano fresco Premium</li>
-            <li><strong data-i18n="traz-arandano-card1-var">Variedad:</strong> Madeira</li>
-            <li><strong data-i18n="traz-arandano-card1-country">País de origen:</strong> <span
-                data-i18n="traz-arandano-card1-country-val">Perú</span></li>
-          </ul>
-        </div>
-        <img src="logo-origen.png" alt="Cultivo de Arándanos"
-          style="object-fit: contain; background: #fff; padding: 10px;">
-      </div>
-
-
-
-      <!-- Certificaciones -->
-      <div class="traz-card-arandano">
-        <div>
-          <h3 data-i18n="traz-arandano-card2-title">✅ Certificaciones</h3>
-          <div class="cert-list">
-            <img src="certificacion global.png" alt="GLOBALG.A.P." class="cert-img">
-            <img src="certificacion grasp.png" alt="GRASP" class="cert-img">
-            <img src="certficacion fsma.png" alt="FSMA" class="cert-img">
-            <span class="cert-badge">🇵🇪 CLP – SENASA</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Logística de Exportación -->
-      <div class="traz-card-arandano">
-        <div>
-          <h3 data-i18n="traz-arandano-card3-title">🚢 Logística de Exportación</h3>
-          <ul>
-            <li><strong data-i18n="traz-arandano-card3-port">Puerto de salida:</strong> <span
-                data-i18n="traz-arandano-card3-port-val">Paita, Perú</span></li>
-            <li><strong data-i18n="traz-arandano-card3-dest">Destino:</strong> <span
-                data-i18n="traz-arandano-card3-dest-val">Hamburgo, Alemania</span></li>
-            <li><strong data-i18n="traz-arandano-card3-trans">Transporte:</strong> <span
-                data-i18n="traz-arandano-card3-trans-val">Cadena de frío controlada</span></li>
-          </ul>
-        </div>
-        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=300&q=80"
-          alt="Logística de exportación marítima">
-      </div>
-    </div>
-  </section>
 
   <!-- ── TRAZABILIDAD DEL ENVASE ── -->
   <section class="section" id="trazabilidad">
@@ -2329,7 +2178,7 @@
         "nav-envase": "Die Verpackung",
         "nav-desarrollo": "Entwicklung",
         "nav-frutas": "Früchte",
-        "nav-trazabilidad-arandano": "Blaubeer-Rückverfolgbarkeit",
+
         "nav-trazabilidad-envase": "Verpackungs-Rückverfolgbarkeit",
         "nav-impacto": "Auswirkungen",
         "nav-contacto": "Kontakt",
@@ -2372,23 +2221,7 @@
         "fruit-card-title": "Blaubeere",
         "fruit-card-desc": "Die Blaubeere ist eine Frucht, die sehr empfindlich auf Feuchtigkeit und Temperaturschwankungen reagiert. EcoClamshell wurde entwickelt, um Frische, Qualität und Aussehen während der Lagerung, des Transports und des Exports zu erhalten.",
         "fruit-card-btn": "Nährwert-Vorteile erfahren",
-        "traz-arandano-title": "🫐 BLAUBEER-RÜCKVERFOLGBARKEIT",
-        "traz-arandano-subtitle": "Vom Feld zum Verbraucher – Transparenz und garantierte Qualität",
-        "traz-arandano-card1-title": "📍 Herkunft des Produkts",
-        "traz-arandano-card1-company": "Unternehmen:",
-        "traz-arandano-card1-loc": "Standort:",
-        "traz-arandano-card1-prod": "Produkt:",
-        "traz-arandano-card1-var": "Sorte:",
-        "traz-arandano-card1-country": "Herkunftsland:",
-        "traz-arandano-card1-country-val": "Peru",
-        "traz-arandano-card2-title": "✅ Zertifizierungen",
-        "traz-arandano-card3-title": "🚢 Exportlogistik",
-        "traz-arandano-card3-port": "Abgangshafen:",
-        "traz-arandano-card3-port-val": "Paita, Peru",
-        "traz-arandano-card3-dest": "Zielort:",
-        "traz-arandano-card3-dest-val": "Hamburg, Deutschland",
-        "traz-arandano-card3-trans": "Transport:",
-        "traz-arandano-card3-trans-val": "Kontrollierte Kühlkette",
+
         "traz-envase-title": "🌱 VERPACKUNGS-RÜCKVERFOLGBARKEIT",
         "traz-envase-subtitle": "Vom landwirtschaftlichen Abfall zur nachhaltigen Lösung",
         "traz-envase-desc": "EcoClamshell wird aus Zuckerrohr-Bagasse hergestellt, einem Nebenprodukt der Zuckerproduktion. Anstatt als Abfall entsorgt zu werden, verwandelt sich dieses Material in eine biologisch abbaubare Verpackung, die empfindliche Früchte schützt und die Umweltbelastung reduziert.",
@@ -2453,7 +2286,7 @@
         "nav-envase": "El Envase",
         "nav-desarrollo": "Desarrollo",
         "nav-frutas": "Frutas",
-        "nav-trazabilidad-arandano": "Trazabilidad Arándano",
+
         "nav-trazabilidad-envase": "Trazabilidad Envase",
         "nav-impacto": "Impacto",
         "nav-contacto": "Contacto",
@@ -2496,23 +2329,7 @@
         "fruit-card-title": "Arándano",
         "fruit-card-desc": "El arándano es una fruta altamente sensible a la humedad y a los cambios de temperatura. EcoClamshell fue diseñado para ayudar a conservar su frescura, calidad y apariencia durante el almacenamiento, transporte y exportación.",
         "fruit-card-btn": "Conocer beneficios nutricionales",
-        "traz-arandano-title": "🫐 TRAZABILIDAD DEL ARÁNDANO",
-        "traz-arandano-subtitle": "Del campo al consumidor – Transparencia y calidad garantizada",
-        "traz-arandano-card1-title": "📍 Origen del Producto",
-        "traz-arandano-card1-company": "Empresa:",
-        "traz-arandano-card1-loc": "Ubicación:",
-        "traz-arandano-card1-prod": "Producto:",
-        "traz-arandano-card1-var": "Variedad:",
-        "traz-arandano-card1-country": "País de origen:",
-        "traz-arandano-card1-country-val": "Perú",
-        "traz-arandano-card2-title": "✅ Certificaciones",
-        "traz-arandano-card3-title": "🚢 Logística de Exportación",
-        "traz-arandano-card3-port": "Puerto de salida:",
-        "traz-arandano-card3-port-val": "Paita, Perú",
-        "traz-arandano-card3-dest": "Destino:",
-        "traz-arandano-card3-dest-val": "Hamburgo, Alemania",
-        "traz-arandano-card3-trans": "Transporte:",
-        "traz-arandano-card3-trans-val": "Cadena de frío controlada",
+
         "traz-envase-title": "🌱 TRAZABILIDAD DEL ENVASE",
         "traz-envase-subtitle": "Del residuo agrícola a una solución sostenible",
         "traz-envase-desc": "EcoClamshell está fabricado a partir de bagazo de caña de azúcar, un subproducto generado durante la producción de azúcar. En lugar de convertirse en un desecho, este material es transformado en un envase biodegradable diseñado para proteger frutas delicadas y reducir el impacto ambiental.",
@@ -2577,7 +2394,7 @@
         "nav-envase": "The Packaging",
         "nav-desarrollo": "Development",
         "nav-frutas": "Fruits",
-        "nav-trazabilidad-arandano": "Blueberry Traceability",
+
         "nav-trazabilidad-envase": "Packaging Traceability",
         "nav-impacto": "Impact",
         "nav-contacto": "Contact",
@@ -2620,23 +2437,7 @@
         "fruit-card-title": "Blueberry",
         "fruit-card-desc": "The blueberry is a fruit highly sensitive to moisture and temperature changes. EcoClamshell was designed to help preserve its freshness, quality, and appearance during storage, transport, and export.",
         "fruit-card-btn": "Learn about nutritional benefits",
-        "traz-arandano-title": "🫐 BLUEBERRY TRACEABILITY",
-        "traz-arandano-subtitle": "From field to consumer – Transparency and guaranteed quality",
-        "traz-arandano-card1-title": "📍 Product Origin",
-        "traz-arandano-card1-company": "Company:",
-        "traz-arandano-card1-loc": "Location:",
-        "traz-arandano-card1-prod": "Product:",
-        "traz-arandano-card1-var": "Variety:",
-        "traz-arandano-card1-country": "Country of origin:",
-        "traz-arandano-card1-country-val": "Peru",
-        "traz-arandano-card2-title": "✅ Certifications",
-        "traz-arandano-card3-title": "🚢 Export Logistics",
-        "traz-arandano-card3-port": "Port of departure:",
-        "traz-arandano-card3-port-val": "Paita, Peru",
-        "traz-arandano-card3-dest": "Destination:",
-        "traz-arandano-card3-dest-val": "Hamburg, Germany",
-        "traz-arandano-card3-trans": "Transport:",
-        "traz-arandano-card3-trans-val": "Controlled cold chain",
+
         "traz-envase-title": "🌱 PACKAGING TRACEABILITY",
         "traz-envase-subtitle": "From agricultural waste to a sustainable solution",
         "traz-envase-desc": "EcoClamshell is manufactured from sugarcane bagasse, a by-product generated during sugar production. Instead of becoming waste, this material is transformed into biodegradable packaging designed to protect delicate fruits and reduce environmental impact.",
